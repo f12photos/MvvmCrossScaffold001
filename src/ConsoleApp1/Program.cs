@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            SQLiteConnection sqliteconn = new SQLiteConnection("")
         }
     }
 }
