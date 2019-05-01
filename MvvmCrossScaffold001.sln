@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCrossScaffold001.Core", "src\MvvmCrossScaffold001.Core\MvvmCrossScaffold001.Core.csproj", "{B2859BC1-207E-478C-8C3E-AD54A9088816}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmCrossScaffold001.Core", "src\MvvmCrossScaffold001.Core\MvvmCrossScaffold001.Core.csproj", "{B2859BC1-207E-478C-8C3E-AD54A9088816}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCrossScaffold001.iOS", "src\MvvmCrossScaffold001.iOS\MvvmCrossScaffold001.iOS.csproj", "{A80FFB89-A07D-4037-9655-259E80CA7713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCrossScaffold001.Model", "src\MvvmCrossScaffold001.Model\MvvmCrossScaffold001.Model.csproj", "{C1B86A5B-EA39-4B21-84BB-F02062BBA037}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmCrossScaffold001.Model", "src\MvvmCrossScaffold001.Model\MvvmCrossScaffold001.Model.csproj", "{C1B86A5B-EA39-4B21-84BB-F02062BBA037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "src\ConsoleApp1\ConsoleApp1.csproj", "{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +96,30 @@ Global
 		{C1B86A5B-EA39-4B21-84BB-F02062BBA037}.Release|x64.Build.0 = Release|Any CPU
 		{C1B86A5B-EA39-4B21-84BB-F02062BBA037}.Release|x86.ActiveCfg = Release|Any CPU
 		{C1B86A5B-EA39-4B21-84BB-F02062BBA037}.Release|x86.Build.0 = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|ARM.Build.0 = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|x64.Build.0 = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Debug|x86.Build.0 = Debug|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|ARM.Build.0 = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|iPhone.Build.0 = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|x64.ActiveCfg = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|x64.Build.0 = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|x86.ActiveCfg = Release|Any CPU
+		{CAD2D0BA-5012-4875-B499-DE2CCD5D1412}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
