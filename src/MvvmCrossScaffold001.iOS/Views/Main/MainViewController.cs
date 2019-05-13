@@ -71,7 +71,6 @@ namespace MvvmCrossScaffold001.iOS.Views.Main
             MvxFluentBindingDescriptionSet<MainViewController, MainViewModel>
                 bindingSet = this.CreateBindingSet<MainViewController, MainViewModel>();
 
-
             bindingSet.Apply();
         }
     }

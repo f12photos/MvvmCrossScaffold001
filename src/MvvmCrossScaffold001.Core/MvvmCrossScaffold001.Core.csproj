@@ -14,5 +14,7 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Itf\" />
     <Folder Include="Services\Impl\" />
+    <Folder Include="ViewModels\Chinook\" />
+    <Folder Include="ViewModels\TipCalculator\" />
   </ItemGroup>
 </Project>

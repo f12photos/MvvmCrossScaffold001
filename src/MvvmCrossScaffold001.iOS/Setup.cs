@@ -37,7 +37,9 @@ namespace MvvmCrossScaffold001.iOS
                 Mvx.IoCProvider.RegisterSingleton<INetworkService>(() => new iOSNetworkService());
                 Mvx.IoCProvider.RegisterSingleton<IUtilityService>(() => new UtilityService());
 
-                Mvx.IoCProvider.RegisterSingleton<IMediaTypeService>(() => new MediaTypeService());
+                Mvx.IoCProvider.RegisterSingleton<IMediaTypeService>(() => new MediaTypeService(iRepoSvc));
+
+                Mvx.IoCProvider.RegisterSingleton<ICalculationService>(() => new CalculationService());
             }
         }
 

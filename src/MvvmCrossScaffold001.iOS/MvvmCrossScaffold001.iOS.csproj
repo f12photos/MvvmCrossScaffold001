@@ -138,6 +138,8 @@
     </ImageAsset>
     <Compile Include="Services\Impl\UtilityService.cs" />
     <Compile Include="Services\Impl\iOSNetworkService.cs" />
+    <Compile Include="Views\Chinook\ChinookView.cs" />
+    <Compile Include="Views\TipCalculator\TipView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -216,6 +218,8 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Itf\" />
     <Folder Include="Services\Impl\" />
+    <Folder Include="Views\Chinook\" />
+    <Folder Include="Views\TipCalculator\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

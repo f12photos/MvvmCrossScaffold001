@@ -16,7 +16,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
     [MvxSidebarPresentation(MvxPanelEnum.Left, MvxPanelHintType.PushPanel, false)]
     public class MenuView : BaseViewController<MenuViewModel>, IMvxSidebarMenu
     {
-        private UILabel _menuHome, _menuSettings;
+        private UILabel _menuHome, _menuSettings, _menuTip;
 
         public bool AnimateMenu => true;
 
@@ -73,6 +73,12 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 Text = "Settings"
             };
             Add(_menuSettings);
+
+            _menuTip = new UILabel
+            {
+                Text = "Tip Calculator"
+            };
+            Add(_menuTip);
         }
 
         protected override void LayoutView()
@@ -89,7 +95,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
 
                 _menuSettings.Below(_menuHome, 10f),
                 _menuSettings.AtLeftOf(View, 10f),
-                _menuSettings.ToRightOf(View)
+                _menuSettings.ToRightOf(View),
+
+                _menuTip.Below(_menuSettings, 10f),
+                _menuTip.AtLeftOf(View, 10f),
+                _menuTip.ToRightOf(View)
             });
         }
 
@@ -100,6 +110,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
 
             bindingSet.Bind(_menuHome.Tap()).For(v => v.Command).To(vm => vm.ShowHomeCommand);
             bindingSet.Bind(_menuSettings.Tap()).For(v => v.Command).To(vm => vm.ShowSettingsCommand);
+            bindingSet.Bind(_menuTip.Tap()).For(v => v.Command).To(vm => vm.ShowTipCommand);
 
             bindingSet.Apply();
         }
