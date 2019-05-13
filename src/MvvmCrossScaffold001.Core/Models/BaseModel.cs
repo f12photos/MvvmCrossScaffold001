@@ -3,7 +3,7 @@ using SQLite;
 
 namespace MvvmCrossScaffold001.Core.Models
 {
-    public class BaseModel
+    public abstract class BaseModel
     {
         public BaseModel()
         {

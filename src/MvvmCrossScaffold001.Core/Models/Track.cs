@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MvvmCrossScaffold001.Core.Models
 {
-    public class Track
+    public class Track : BaseModel
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Name { get; set; }
         public int AlbumId { get; set; }
         public int MediaTypeId { get; set; }

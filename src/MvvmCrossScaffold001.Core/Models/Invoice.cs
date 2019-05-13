@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MvvmCrossScaffold001.Core.Models
 {
-    public class Invoice
+    public class Invoice : BaseModel
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public int CustomerId { get; set; }
         public DateTime InvoiceDate { get; set; }
         public string BillingAddress { get; set; }

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MvvmCrossScaffold001.Core.Models
 {
-    public class Customer
+    public class Customer : BaseModel
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Company { get; set; }

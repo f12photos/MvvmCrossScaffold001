@@ -6,6 +6,9 @@ using MvvmCross.Platforms.Ios.Core;
 using MvvmCross.Platforms.Ios.Presenters;
 using MvvmCross.Plugin.Sidebar;
 using MvvmCrossScaffold001.Core;
+using MvvmCrossScaffold001.Core.Services.Impl;
+using MvvmCrossScaffold001.Core.Services.Itf;
+using MvvmCrossScaffold001.iOS.Services.Impl;
 using Xamarin.Essentials;
 
 namespace MvvmCrossScaffold001.iOS
@@ -23,7 +26,7 @@ namespace MvvmCrossScaffold001.iOS
 
             // IOC Functions
             var mainDir = FileSystem.AppDataDirectory;
-            var dbPath = Path.Combine(mainDir, "mydbName.db3");
+            var dbPath = Path.Combine(mainDir, Constants.DB_NAME);
 
             // SETUP IOC HERE INSTEAD OF CORE.APP
             Mvx.IoCProvider.RegisterSingleton<IRepositoryService>(() => new RepositoryService(dbPath));
@@ -31,7 +34,10 @@ namespace MvvmCrossScaffold001.iOS
 
             if (null != iRepoSvc)
             {
+                Mvx.IoCProvider.RegisterSingleton<INetworkService>(() => new iOSNetworkService());
+                Mvx.IoCProvider.RegisterSingleton<IUtilityService>(() => new UtilityService());
 
+                Mvx.IoCProvider.RegisterSingleton<IMediaTypeService>(() => new MediaTypeService());
             }
         }
 

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MvvmCrossScaffold001.Core.Models
 {
-    public class PlayList
+    public class PlayList : BaseModel
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Name { get; set; }
     }
 }
