@@ -9,7 +9,7 @@ namespace MvvmCrossScaffold001.Core.Models
         {
         }
 
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public int Id { get; set; }
     }
 }

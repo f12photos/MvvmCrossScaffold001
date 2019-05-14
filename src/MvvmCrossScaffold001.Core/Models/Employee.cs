@@ -21,6 +21,5 @@ namespace MvvmCrossScaffold001.Core.Models
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string Email { get; set; }
-        public int SupportRepId { get; set; }
     }
 }

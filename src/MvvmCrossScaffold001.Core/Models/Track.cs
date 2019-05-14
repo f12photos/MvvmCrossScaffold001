@@ -15,6 +15,6 @@ namespace MvvmCrossScaffold001.Core.Models
         public string Composer { get; set; }
         public int Milliseconds { get; set; }
         public int Bytes { get; set; }
-        public float UnitPrice {get;set;}
+        public double UnitPrice {get;set;}
     }
 }

@@ -9,6 +9,7 @@ namespace MvvmCrossScaffold001.Core.Models
         //public int Id { get; set; }
         public int InvoiceId { get; set; }
         public int TrackId { get; set; }
+        public double UnitPrice { get; set; }
         public int Quantity { get; set; }
     }
 }
