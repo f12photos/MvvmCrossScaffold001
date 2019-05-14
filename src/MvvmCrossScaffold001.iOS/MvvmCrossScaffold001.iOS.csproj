@@ -140,6 +140,7 @@
     <Compile Include="Services\Impl\iOSNetworkService.cs" />
     <Compile Include="Views\Chinook\ChinookView.cs" />
     <Compile Include="Views\TipCalculator\TipView.cs" />
+    <BundleResource Include="Resources\chinook.db" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

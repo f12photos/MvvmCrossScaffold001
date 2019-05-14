@@ -16,7 +16,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
     [MvxSidebarPresentation(MvxPanelEnum.Left, MvxPanelHintType.PushPanel, false)]
     public class MenuView : BaseViewController<MenuViewModel>, IMvxSidebarMenu
     {
-        private UILabel _menuHome, _menuSettings, _menuTip;
+        private UILabel _menuHome, _menuSettings, _menuTip, _menuChinook;
 
         public bool AnimateMenu => true;
 
@@ -79,6 +79,12 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 Text = "Tip Calculator"
             };
             Add(_menuTip);
+
+            _menuChinook = new UILabel
+            {
+                Text = "Chinook"
+            };
+            Add(_menuChinook);
         }
 
         protected override void LayoutView()
@@ -99,7 +105,13 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
 
                 _menuTip.Below(_menuSettings, 10f),
                 _menuTip.AtLeftOf(View, 10f),
-                _menuTip.ToRightOf(View)
+                _menuTip.ToRightOf(View),
+
+                _menuChinook.Below(_menuTip, 10f),
+                _menuChinook.AtLeftOf(View, 10f),
+                _menuChinook.ToRightOf(View)
+
+
             });
         }
 
@@ -111,7 +123,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
             bindingSet.Bind(_menuHome.Tap()).For(v => v.Command).To(vm => vm.ShowHomeCommand);
             bindingSet.Bind(_menuSettings.Tap()).For(v => v.Command).To(vm => vm.ShowSettingsCommand);
             bindingSet.Bind(_menuTip.Tap()).For(v => v.Command).To(vm => vm.ShowTipCommand);
-
+            bindingSet.Bind(_menuChinook.Tap()).For(v => v.Command).To(vm => vm.ShowChinookCommand);
             bindingSet.Apply();
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Foundation;
 using MvvmCross;
 using MvvmCross.IoC;
 using MvvmCross.Platforms.Ios.Core;
@@ -28,12 +29,17 @@ namespace MvvmCrossScaffold001.iOS
             var mainDir = FileSystem.AppDataDirectory;
             var dbPath = Path.Combine(mainDir, Constants.DB_NAME);
 
+
+
             // SETUP IOC HERE INSTEAD OF CORE.APP
             Mvx.IoCProvider.RegisterSingleton<IRepositoryService>(() => new RepositoryService(dbPath));
             var iRepoSvc = Mvx.IoCProvider.Resolve<IRepositoryService>();
 
             if (null != iRepoSvc)
             {
+                string dbChinookPath = NSBundle.MainBundle.PathForResource("chinook", "db");
+                iRepoSvc.CopyChinookDatabase(dbChinookPath);
+
                 Mvx.IoCProvider.RegisterSingleton<INetworkService>(() => new iOSNetworkService());
                 Mvx.IoCProvider.RegisterSingleton<IUtilityService>(() => new UtilityService());
 

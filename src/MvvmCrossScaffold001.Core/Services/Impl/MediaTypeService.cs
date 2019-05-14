@@ -8,6 +8,7 @@ namespace MvvmCrossScaffold001.Core.Services.Impl
     {
         public MediaTypeService(IRepositoryService repoSvc) : base (repoSvc)
         {
+            repoSvc.GetData();
         }
     }
 }

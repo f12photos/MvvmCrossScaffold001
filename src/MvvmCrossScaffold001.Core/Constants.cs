@@ -3,6 +3,6 @@ namespace MvvmCrossScaffold001.Core
 {
     public static class Constants
     {
-        public const string DB_NAME = "mydBName.db";
+        public const string DB_NAME = "myChinook.db";
     }
 }

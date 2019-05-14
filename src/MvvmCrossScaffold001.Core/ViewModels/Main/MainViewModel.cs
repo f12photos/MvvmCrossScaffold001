@@ -14,13 +14,15 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Main
             if(_utilSvc.FileExists(Constants.DB_NAME))
             {
                 DisplayToast("Exists");
-                DisplayAlert("Success", "File does exist");
+                //DisplayAlert("Success", "File does exist");
             }
             else 
             {
-                DisplayAlert("Error", "File does not exist");
+                //DisplayAlert("Error", "File does not exist");
             }
             //Acr.UserDialogs.UserDialogs.Instance.Alert("Alert");
         }
+
+
     }
 }
