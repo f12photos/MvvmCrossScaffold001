@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using MvvmCrossScaffold001.Core.Services.Itf;
+using MvvmCrossScaffold001.Core.Services;
 
 namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
 {

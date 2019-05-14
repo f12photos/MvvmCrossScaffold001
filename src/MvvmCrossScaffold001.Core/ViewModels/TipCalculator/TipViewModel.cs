@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MvvmCross.ViewModels;
-using MvvmCrossScaffold001.Core.Services.Itf;
+using MvvmCrossScaffold001.Core.Services;
 
 namespace MvvmCrossScaffold001.Core.ViewModels.TipCalculator
 {

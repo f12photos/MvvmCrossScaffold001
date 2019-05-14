@@ -7,7 +7,7 @@ using MvvmCross.Platforms.Ios.Core;
 using MvvmCross.Platforms.Ios.Presenters;
 using MvvmCross.Plugin.Sidebar;
 using MvvmCrossScaffold001.Core;
-using MvvmCrossScaffold001.Core.Services.Impl;
+using MvvmCrossScaffold001.Core.Services;
 using MvvmCrossScaffold001.Core.Services.Itf;
 using MvvmCrossScaffold001.iOS.Services.Impl;
 using Xamarin.Essentials;
