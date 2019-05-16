@@ -1,33 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Cirrious.FluentLayouts.Touch;
-using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding.Views;
-using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using MvvmCross.Plugin.Sidebar;
 using MvvmCrossScaffold001.Core.ViewModels.Chinook;
 using UIKit;
 
 namespace MvvmCrossScaffold001.iOS.Views.Chinook
 {
-    [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, false)]
-    public class ChinookView : BaseViewController<ChinookViewModel>
+    [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.PushPanel, true)]
+    public class GenreView : BaseViewController<GenreViewModel>
     {
         private UILabel _labelWelcome, _labelMessage;
         private UITextField _txt;
-        private UIButton _btn;
+        private UIButton _btn, _btnAdd;
         private UITableView _table;
         private MvxStandardTableViewSource _source;
 
         protected override void CreateView()
         {
+            Title = "Genre";
+
             _labelWelcome = new UILabel
             {
-                Text = "Chinook Welcome!!",
+                Text = "Genre",
                 TextAlignment = UITextAlignment.Center
             };
             Add(_labelWelcome);
@@ -50,10 +46,14 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
             _btn.SetTitle("This is a Button", UIControlState.Normal);
             Add(_btn);
 
+            _btnAdd = new UIButton(UIButtonType.System);
+            _btnAdd.SetTitle("+", UIControlState.Normal);
+            Add(_btnAdd);
+
             _table = new UITableView();
             Add(_table);
 
-            _source = new MvxStandardTableViewSource(_table, "TitleText Strip(Name, 'ViewModel')");
+            _source = new MvxStandardTableViewSource(_table, "TitleText Name");
             _table.Source = _source;
 
         }
@@ -74,7 +74,10 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
                 _btn.Below(_txt, 10f),
                 _btn.WithSameWidth(View),
 
-                _table.Below(_btn, 10f),
+                _btnAdd.Below(_btn, 10f),
+                _btnAdd.AtLeftOfSafeArea(View, 10f),
+
+                _table.Below(_btnAdd, 10f),
                 _table.WithSameWidth(View),
                 _table.AtBottomOfSafeArea(View)
             });
@@ -87,9 +90,10 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
             //bindingSet.Apply();
 
-            var set = this.CreateBindingSet<ChinookView, ChinookViewModel>();
-            set.Bind(_source).To(vm => vm.Tests);
-            set.Bind(_source).For(s => s.SelectionChangedCommand).To(vm => vm.GotoTestCommand);
+            var set = this.CreateBindingSet<GenreView, GenreViewModel>();
+            set.Bind(_source).To(vm => vm.Items);
+            set.Bind(_btnAdd).To(vm => vm.AddCommand);
+            //set.Bind(_source).For(s => s.SelectionChangedCommand).To(vm => vm.GotoTestCommand);
             set.Apply();
         }
     }

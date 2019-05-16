@@ -38,7 +38,7 @@ namespace MvvmCrossScaffold001.iOS
             if (null != iRepoSvc)
             {
                 string dbChinookPath = NSBundle.MainBundle.PathForResource("chinook", "db");
-                iRepoSvc.CopyChinookDatabase(dbChinookPath);
+                //iRepoSvc.CopyChinookDatabase(dbChinookPath);
 
                 Mvx.IoCProvider.RegisterSingleton<INetworkService>(() => new iOSNetworkService());
                 Mvx.IoCProvider.RegisterSingleton<IUtilityService>(() => new UtilityService());
@@ -47,6 +47,8 @@ namespace MvvmCrossScaffold001.iOS
                 Mvx.IoCProvider.RegisterSingleton<IGenreService>(() => new GenreService(iRepoSvc));
 
                 Mvx.IoCProvider.RegisterSingleton<ICalculationService>(() => new CalculationService());
+
+                Mvx.IoCProvider.RegisterSingleton<IChinookService>(() => new ChinookService());
             }
         }
 

@@ -141,6 +141,8 @@
     <Compile Include="Views\Chinook\ChinookView.cs" />
     <Compile Include="Views\TipCalculator\TipView.cs" />
     <BundleResource Include="Resources\chinook.db" />
+    <Compile Include="Views\Chinook\GenreView.cs" />
+    <Compile Include="Views\Chinook\GenreAddView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
