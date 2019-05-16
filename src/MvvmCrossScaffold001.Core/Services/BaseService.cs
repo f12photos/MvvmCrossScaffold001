@@ -31,7 +31,7 @@ namespace MvvmCrossScaffold001.Core.Services
 
         protected SQLiteConnection _dbConn;
         private static readonly object locker = new object();
-        private readonly IRepositoryService _repoSvc;
+        protected readonly IRepositoryService _repoSvc;
 
         public BaseService(IRepositoryService repoSvc)
         {

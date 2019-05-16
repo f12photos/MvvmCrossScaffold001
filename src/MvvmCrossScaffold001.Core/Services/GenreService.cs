@@ -5,7 +5,7 @@ namespace MvvmCrossScaffold001.Core.Services
 {
     public interface IGenreService : IBaseService<Genre>
     {
-
+        void AddGenre(Genre g);
     }
 
     //--------------------------------------------------------------------------
@@ -15,6 +15,11 @@ namespace MvvmCrossScaffold001.Core.Services
         public GenreService(IRepositoryService repoSvc) : base(repoSvc)
         {
             //repoSvc.GetData();
+        }
+
+        public void AddGenre(Genre g)
+        {
+            Save(g);
         }
     }
 }

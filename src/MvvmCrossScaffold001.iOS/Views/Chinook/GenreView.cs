@@ -55,7 +55,6 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
             _source = new MvxStandardTableViewSource(_table, "TitleText Name");
             _table.Source = _source;
-
         }
 
         protected override void LayoutView()

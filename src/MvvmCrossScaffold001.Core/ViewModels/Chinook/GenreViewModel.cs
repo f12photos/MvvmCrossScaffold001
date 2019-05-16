@@ -43,7 +43,12 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
 
         public ICommand AddCommand
         {
-            get { return new MvxCommand(() => _navigationService.Value.Navigate<GenreAddViewModel>()); }
+            get { return new MvxCommand(AddGenre); }
+        }
+
+        private void AddGenre()
+        {
+            _navigationService.Value.Navigate<GenreAddViewModel>();
         }
     }
 }

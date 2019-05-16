@@ -37,13 +37,13 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
             _txt = new UITextField
             {
-                Placeholder = "Enter Text Here",
+                Placeholder = "Enter New Genre",
                 TextAlignment = UITextAlignment.Center
             };
             Add(_txt);
 
             _btn = new UIButton(UIButtonType.System);
-            _btn.SetTitle("This is a Button", UIControlState.Normal);
+            _btn.SetTitle("Add", UIControlState.Normal);
             Add(_btn);
 
         }
@@ -52,13 +52,13 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
         {
             View.AddConstraints(new FluentLayout[]
             {
-                _labelWelcome.AtTopOfSafeArea(View),
-                _labelWelcome.WithSameCenterX(View),
+                _labelMessage.AtTopOfSafeArea(View),
+                _labelMessage.WithSameCenterX(View),
 
-                _labelMessage.Below(_labelWelcome, 10f),
-                _labelMessage.WithSameWidth(View),
+                _labelWelcome.Below(_labelMessage, 10f),
+                _labelWelcome.WithSameWidth(View),
 
-                _txt.Below(_labelMessage, 10f),
+                _txt.Below(_labelWelcome, 10f),
                 _txt.WithSameWidth(View),
 
                 _btn.Below(_txt, 10f),
@@ -68,15 +68,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
         protected override void BindView()
         {
-            ////MvxFluentBindingDescriptionSet<MainViewController, MainViewModel>
-            ////    bindingSet = this.CreateBindingSet<MainViewController, MainViewModel>();
-
-            ////bindingSet.Apply();
-
-            //var set = this.CreateBindingSet<GenreView, GenreViewModel>();
-            //set.Bind(_source).To(vm => vm.Items);
+            var set = this.CreateBindingSet<GenreAddView, GenreAddViewModel>();
+            set.Bind(_txt).To(vm => vm.Name);
+            set.Bind(_btn).To(vm => vm.AddCommand);
             ////set.Bind(_source).For(s => s.SelectionChangedCommand).To(vm => vm.GotoTestCommand);
-            //set.Apply();
+            set.Apply();
         }
     }
 }
