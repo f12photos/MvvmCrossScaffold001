@@ -16,7 +16,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
     [MvxSidebarPresentation(MvxPanelEnum.Left, MvxPanelHintType.PushPanel, false)]
     public class MenuView : BaseViewController<MenuViewModel>, IMvxSidebarMenu
     {
-        private UILabel _menuHome, _menuSettings, _menuTip, _menuChinook;
+        private UILabel _menuHome, _menuSettings, _menuTip, _menuChinook, _menuLifecycle;
 
         public bool AnimateMenu => true;
 
@@ -85,6 +85,12 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 Text = "Chinook"
             };
             Add(_menuChinook);
+
+            _menuLifecycle = new UILabel
+            {
+                Text = "Lifecycle"
+            };
+            Add(_menuLifecycle);
         }
 
         protected override void LayoutView()
@@ -109,8 +115,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
 
                 _menuChinook.Below(_menuTip, 10f),
                 _menuChinook.AtLeftOf(View, 10f),
-                _menuChinook.ToRightOf(View)
+                _menuChinook.ToRightOf(View),
 
+                _menuLifecycle.Below(_menuChinook, 10f),
+                _menuLifecycle.AtLeftOf(View, 10f),
+                _menuLifecycle.ToRightOf(View)
 
             });
         }
@@ -124,6 +133,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
             bindingSet.Bind(_menuSettings.Tap()).For(v => v.Command).To(vm => vm.ShowSettingsCommand);
             bindingSet.Bind(_menuTip.Tap()).For(v => v.Command).To(vm => vm.ShowTipCommand);
             bindingSet.Bind(_menuChinook.Tap()).For(v => v.Command).To(vm => vm.ShowChinookCommand);
+            bindingSet.Bind(_menuLifecycle.Tap()).For(v => v.Command).To(vm => vm.ShowLifecycleCommand);
             bindingSet.Apply();
         }
     }

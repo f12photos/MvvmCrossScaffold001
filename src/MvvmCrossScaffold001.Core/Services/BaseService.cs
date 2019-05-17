@@ -23,6 +23,7 @@ namespace MvvmCrossScaffold001.Core.Services
         void Delete(T entity);
 
     }
+
     //------------------------------------------------------
     //------------------------------------------------------
 
@@ -37,7 +38,6 @@ namespace MvvmCrossScaffold001.Core.Services
         {
             _repoSvc = repoSvc;
             _dbConn = _repoSvc.GetConnetion();
-
         }
 
         public T GetById(int Id)

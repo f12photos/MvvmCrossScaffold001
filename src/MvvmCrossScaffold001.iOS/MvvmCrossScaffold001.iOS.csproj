@@ -143,6 +143,8 @@
     <BundleResource Include="Resources\chinook.db" />
     <Compile Include="Views\Chinook\GenreView.cs" />
     <Compile Include="Views\Chinook\GenreAddView.cs" />
+    <Compile Include="Views\Lifecycle\Next0View.cs" />
+    <Compile Include="Views\Lifecycle\Next1View.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -223,6 +225,7 @@
     <Folder Include="Services\Impl\" />
     <Folder Include="Views\Chinook\" />
     <Folder Include="Views\TipCalculator\" />
+    <Folder Include="Views\Lifecycle\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

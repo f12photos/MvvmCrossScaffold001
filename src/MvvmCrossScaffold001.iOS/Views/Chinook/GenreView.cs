@@ -17,6 +17,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
         private UITableView _table;
         private MvxStandardTableViewSource _source;
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+        }
+
         protected override void CreateView()
         {
             Title = "Genre";
