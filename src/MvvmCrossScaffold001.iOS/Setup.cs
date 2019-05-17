@@ -30,7 +30,6 @@ namespace MvvmCrossScaffold001.iOS
             var dbPath = Path.Combine(mainDir, Constants.DB_NAME);
 
 
-
             // SETUP IOC HERE INSTEAD OF CORE.APP
             Mvx.IoCProvider.RegisterSingleton<IRepositoryService>(() => new RepositoryService(dbPath));
             var iRepoSvc = Mvx.IoCProvider.Resolve<IRepositoryService>();
@@ -45,6 +44,7 @@ namespace MvvmCrossScaffold001.iOS
 
                 Mvx.IoCProvider.RegisterSingleton<IMediaTypeService>(() => new MediaTypeService(iRepoSvc));
                 Mvx.IoCProvider.RegisterSingleton<IGenreService>(() => new GenreService(iRepoSvc));
+                Mvx.IoCProvider.RegisterSingleton<ITrackService>(() => new TrackService(iRepoSvc));
 
                 Mvx.IoCProvider.RegisterSingleton<ICalculationService>(() => new CalculationService());
 
