@@ -146,6 +146,7 @@
     <Compile Include="Views\Lifecycle\Next0View.cs" />
     <Compile Include="Views\Lifecycle\Next1View.cs" />
     <Compile Include="Views\Chinook\TrackView.cs" />
+    <Compile Include="Views\Chinook\TrackAddView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

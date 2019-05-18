@@ -52,7 +52,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
             Add(_btn);
 
             _btnAdd = new UIButton(UIButtonType.System);
-            _btnAdd.SetTitle("+", UIControlState.Normal);
+            _btnAdd.SetTitle("Add Track", UIControlState.Normal);
             Add(_btnAdd);
 
             _table = new UITableView();
@@ -96,6 +96,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
             var set = this.CreateBindingSet<TrackView, TrackViewModel>();
             set.Bind(_source).To(vm => vm.Items);
+            set.Bind(_btnAdd).To(vm => vm.AddTrackCommand);
             //set.Bind(_btnAdd).To(vm => vm.AddCommand);
             //set.Bind(_source).For(s => s.SelectionChangedCommand).To(vm => vm.GotoTestCommand);
             set.Apply();
