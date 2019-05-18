@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using MvvmCrossScaffold001.Core.Models;
 using MvvmCrossScaffold001.Core.Services;
 
@@ -8,9 +10,11 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
 {
     public class TrackAddViewModel : BaseViewModelResult<Track>
     {
+        IMvxNavigationService _navSvc;
         ITrackService _trackSvc;
-        public TrackAddViewModel(ITrackService trackService)
+        public TrackAddViewModel(IMvxNavigationService navigationService, ITrackService trackService)
         {
+            _navSvc = navigationService;
             _trackSvc = trackService;
         }
 
@@ -68,6 +72,29 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
         {
             get { return _genreId; }
             set { _genreId = value; RaisePropertyChanged(() => GenreId); }
+        }
+
+        public IMvxCommand AddTrackCommand 
+        {
+            get { return new MvxAsyncCommand(AddTrackAsync); }
+        }
+
+        private async Task AddTrackAsync()
+        {
+            Track newTrack = new Track();
+
+            newTrack.Name = _name;
+            newTrack.Composer = _composer;
+            newTrack.Milliseconds = _milliseconds;
+            newTrack.Bytes = _bytes;
+            newTrack.UnitPrice = _unitPrice;
+
+            newTrack.AlbumId = _albumId;
+            newTrack.GenreId = _genreId;
+            newTrack.MediaTypeId = _mediaTypeId;
+
+            //throw new NotImplementedException();
+            await _navSvc.Close(this, newTrack);
         }
     }
 }

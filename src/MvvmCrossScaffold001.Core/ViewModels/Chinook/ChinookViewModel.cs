@@ -55,7 +55,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
             set { _tests = value; RaisePropertyChanged(() => Tests); }
         }
 
-        public ICommand GotoTestCommand
+        public IMvxCommand GotoTestCommand
         {
             get { return new MvxAsyncCommand<Type>(async type => await _navigationService.Value.Navigate(type)); }
         }

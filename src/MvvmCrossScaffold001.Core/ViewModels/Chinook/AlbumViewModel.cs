@@ -10,27 +10,27 @@ using MvvmCrossScaffold001.Core.Services;
 
 namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
 {
-    public class TrackViewModel : ChinookBaseViewModel
+    public class AlbumViewModel : ChinookBaseViewModel
     {
         //private readonly Lazy<IMvxNavigationService> _navigationService = new Lazy<IMvxNavigationService>(Mvx.IoCProvider.Resolve<IMvxNavigationService>);
 
 
         private readonly IMvxNavigationService _navigationService;
-        private readonly ITrackService _trackService;
+        private readonly IAlbumService _albumSvc;
 
-        public TrackViewModel(IMvxNavigationService navigationService, ITrackService trackService)
+        public AlbumViewModel(IMvxNavigationService navigationService, IAlbumService albumService)
         {
-            _trackService = trackService;
+            _albumSvc = albumService;
             _navigationService = navigationService;
-            var items = _trackService.GetAll();
+            var items = _albumSvc.GetAll();
 
-            Items = new MvxObservableCollection<Track>();
+            Items = new MvxObservableCollection<Album>();
 
             _items.AddRange(items);
         }
 
-        private MvxObservableCollection<Track> _items;
-        public MvxObservableCollection<Track> Items
+        private MvxObservableCollection<Album> _items;
+        public MvxObservableCollection<Album> Items
         {
             get
             {
@@ -43,16 +43,22 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
             }
         }
 
-        public IMvxCommand AddTrackCommand
+        public IMvxCommand AddCommand
         {
-            get { return new MvxAsyncCommand(AddTrack); }
+            get { return new MvxAsyncCommand(AddAsync); }
         }
 
 
-        public async Task AddTrack()
+        public async Task AddAsync()
         {
-            var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
-            var strTrackName = result.Name;
+            //simulate a call to the server
+            await Task.Delay(50);
+
+
+
+
+            //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
+            //var strTrackName = result.Name;
         }
     }
 }

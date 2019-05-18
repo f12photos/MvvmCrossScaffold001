@@ -41,7 +41,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
             }
         }
 
-        public ICommand AddCommand
+        public IMvxCommand AddCommand
         {
             get { return new MvxCommand(AddGenre); }
         }

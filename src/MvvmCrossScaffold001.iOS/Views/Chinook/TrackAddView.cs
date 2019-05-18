@@ -140,13 +140,18 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
             });
         }
 
-        //protected override void BindView()
-        //{
-        //    var set = this.CreateBindingSet<GenreAddView, GenreAddViewModel>();
-        //    set.Bind(_txt).To(vm => vm.Name);
-        //    set.Bind(_btn).To(vm => vm.AddCommand);
-        //    ////set.Bind(_source).For(s => s.SelectionChangedCommand).To(vm => vm.GotoTestCommand);
-        //    set.Apply();
-        //}
+        protected override void BindView()
+        {
+            var set = this.CreateBindingSet<TrackAddView, TrackAddViewModel>();
+            set.Bind(_txtName).To(vm => vm.Name);
+            set.Bind(_txtComposer).To(vm => vm.Composer);
+            set.Bind(_txtMilliseconds).To(vm => vm.Milliseconds);
+            set.Bind(_txtBytes).To(vm => vm.Bytes);
+            set.Bind(_txtUnitPrice).To(vm => vm.UnitPrice);
+
+            set.Bind(_btn).To(vm => vm.AddTrackCommand);
+            ////set.Bind(_source).For(s => s.SelectionChangedCommand).To(vm => vm.GotoTestCommand);
+            set.Apply();
+        }
     }
 }

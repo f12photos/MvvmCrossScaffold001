@@ -42,13 +42,13 @@ namespace MvvmCrossScaffold001.iOS
                 Mvx.IoCProvider.RegisterSingleton<INetworkService>(() => new iOSNetworkService());
                 Mvx.IoCProvider.RegisterSingleton<IUtilityService>(() => new UtilityService());
 
-                Mvx.IoCProvider.RegisterSingleton<IMediaTypeService>(() => new MediaTypeService(iRepoSvc));
-                Mvx.IoCProvider.RegisterSingleton<IGenreService>(() => new GenreService(iRepoSvc));
-                Mvx.IoCProvider.RegisterSingleton<ITrackService>(() => new TrackService(iRepoSvc));
-
                 Mvx.IoCProvider.RegisterSingleton<ICalculationService>(() => new CalculationService());
 
                 Mvx.IoCProvider.RegisterSingleton<IChinookService>(() => new ChinookService());
+                Mvx.IoCProvider.RegisterSingleton<IMediaTypeService>(() => new MediaTypeService(iRepoSvc));
+                Mvx.IoCProvider.RegisterSingleton<IGenreService>(() => new GenreService(iRepoSvc));
+                Mvx.IoCProvider.RegisterSingleton<ITrackService>(() => new TrackService(iRepoSvc));
+                Mvx.IoCProvider.RegisterSingleton<IAlbumService>(() => new AlbumService(iRepoSvc));
             }
         }
 
