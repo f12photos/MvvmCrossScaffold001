@@ -148,6 +148,8 @@
     <Compile Include="Views\Chinook\TrackView.cs" />
     <Compile Include="Views\Chinook\TrackAddView.cs" />
     <Compile Include="Views\Chinook\AlbumView.cs" />
+    <Compile Include="Views\Chinook\Cells\NameTableViewCell.cs" />
+    <Compile Include="Views\Chinook\Cells\BaseTableViewCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
