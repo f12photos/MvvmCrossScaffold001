@@ -7,6 +7,7 @@ using MvvmCross.Platforms.Ios.Core;
 using MvvmCross.Platforms.Ios.Presenters;
 using MvvmCross.Plugin.Sidebar;
 using MvvmCrossScaffold001.Core;
+using MvvmCrossScaffold001.Core.Rest;
 using MvvmCrossScaffold001.Core.Services;
 using MvvmCrossScaffold001.Core.Services.Itf;
 using MvvmCrossScaffold001.iOS.Services.Impl;
@@ -29,18 +30,21 @@ namespace MvvmCrossScaffold001.iOS
             var mainDir = FileSystem.AppDataDirectory;
             var dbPath = Path.Combine(mainDir, Constants.DB_NAME);
 
-
             // SETUP IOC HERE INSTEAD OF CORE.APP
             Mvx.IoCProvider.RegisterSingleton<IRepositoryService>(() => new RepositoryService(dbPath));
             var iRepoSvc = Mvx.IoCProvider.Resolve<IRepositoryService>();
 
             if (null != iRepoSvc)
             {
-                string dbChinookPath = NSBundle.MainBundle.PathForResource("chinook", "db");
+                //string dbChinookPath = NSBundle.MainBundle.PathForResource("chinook", "db");
                 //iRepoSvc.CopyChinookDatabase(dbChinookPath);
 
                 Mvx.IoCProvider.RegisterSingleton<INetworkService>(() => new iOSNetworkService());
                 Mvx.IoCProvider.RegisterSingleton<IUtilityService>(() => new UtilityService());
+
+                Mvx.IoCProvider.RegisterType<IRestClient, RestClient>();
+                var iRest = Mvx.IoCProvider.Resolve<IRepositoryService>();
+                //Mvx.IoCProvider.RegisterSingleton<IRestClient>(() => new RestClient());
 
                 Mvx.IoCProvider.RegisterSingleton<ICalculationService>(() => new CalculationService());
 
@@ -49,6 +53,7 @@ namespace MvvmCrossScaffold001.iOS
                 Mvx.IoCProvider.RegisterSingleton<IGenreService>(() => new GenreService(iRepoSvc));
                 Mvx.IoCProvider.RegisterSingleton<ITrackService>(() => new TrackService(iRepoSvc));
                 Mvx.IoCProvider.RegisterSingleton<IAlbumService>(() => new AlbumService(iRepoSvc));
+                Mvx.IoCProvider.RegisterSingleton<IArtistService>(() => new ArtistService(iRepoSvc));
             }
         }
 

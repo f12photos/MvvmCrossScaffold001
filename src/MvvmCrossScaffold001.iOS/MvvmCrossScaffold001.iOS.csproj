@@ -148,8 +148,13 @@
     <Compile Include="Views\Chinook\TrackView.cs" />
     <Compile Include="Views\Chinook\TrackAddView.cs" />
     <Compile Include="Views\Chinook\AlbumView.cs" />
-    <Compile Include="Views\Chinook\Cells\NameTableViewCell.cs" />
-    <Compile Include="Views\Chinook\Cells\BaseTableViewCell.cs" />
+    <Compile Include="Sources\ChinookTableSource.cs" />
+    <Compile Include="Views\Cells\BaseTableViewCell.cs" />
+    <Compile Include="Views\Cells\NameTableViewCell.cs" />
+    <Compile Include="Views\Chinook\ArtistView.cs" />
+    <Compile Include="Views\skeleton.cs" />
+    <Compile Include="Views\Chinook\ArtistAddView.cs" />
+    <Compile Include="Views\Chinook\ArtistEditView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -232,6 +237,8 @@
     <Folder Include="Views\TipCalculator\" />
     <Folder Include="Views\Lifecycle\" />
     <Folder Include="Views\Chinook\Cells\" />
+    <Folder Include="Sources\" />
+    <Folder Include="Views\Cells\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

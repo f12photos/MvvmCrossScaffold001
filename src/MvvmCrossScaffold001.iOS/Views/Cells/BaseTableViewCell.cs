@@ -1,7 +1,7 @@
 ﻿using System;
 using MvvmCross.Platforms.Ios.Binding.Views;
 
-namespace MvvmCrossScaffold001.iOS.Views.Chinook.Cells
+namespace MvvmCrossScaffold001.iOS.Views.Cells
 {
     public class BaseTableViewCell : MvxTableViewCell
     {
@@ -15,6 +15,8 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook.Cells
         private void RunLifecycle()
         {
             CreateView();
+
+            BindView();
 
             SetNeedsUpdateConstraints();
         }
@@ -34,11 +36,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook.Cells
         {
         }
 
-        protected virtual void LayoutView() // CreateConstraints()
+        protected virtual void LayoutView()
         {
         }
 
-        protected virtual void BindView() // CreateConstraints()
+        protected virtual void BindView()
         {
         }
     }

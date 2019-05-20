@@ -54,11 +54,66 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
             //simulate a call to the server
             await Task.Delay(50);
 
-
-
-
             //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
             //var strTrackName = result.Name;
         }
+
+        //----------------------------------------------------------------------
+        //----------------------------------------------------------------------
+        public IMvxCommand<Album> AlbumSelectedCommand { get { return new MvxAsyncCommand<Album>(AlbumSelected); } }
+        private async Task AlbumSelected(Album selectedAlbum)
+        {
+            await Task.Delay(50);
+            DisplayAlert("Album Selected ", selectedAlbum.Name);
+
+            //var result = await _navigationService.Navigate<PersonViewModel, Person, DestructionResult<Person>>(selectedPerson);
+
+            //if (result != null && result.Destroyed)
+            //{
+            //    var person = People.FirstOrDefault(p => p.Name == result.Entity.Name);
+            //    if (person != null)
+            //        People.Remove(person);
+            //}
+        }
+
+        //----------------------------------------------------------------------
+        //----------------------------------------------------------------------
+        /*
+        private string _nextPage;
+        public IMvxCommand FetchAlbumCommand 
+        { 
+            get 
+            { 
+                return new MvxCommand(
+                () =>
+                {
+                    if (!string.IsNullOrEmpty(_nextPage))
+                    {
+                        FetchAlbumTask = MvxNotifyTask.Create(LoadPeople);
+                        RaisePropertyChanged(() => FetchAlbumTask);
+                    }
+                });
+            } 
+        }
+        public MvxNotifyTask FetchAlbumTask { get; private set; }
+        private async Task LoadPeople()
+        {
+            await Task.Delay(50);
+
+            //var result = await _peopleService.GetPeopleAsync(_nextPage);
+
+            //if (string.IsNullOrEmpty(_nextPage))
+            //{
+            //    People.Clear();
+            //    People.AddRange(result.Results.Where(p => !p.Name.Contains("Vader") && !p.Name.Contains("Anakin")));
+            //}
+            //else
+            //{
+            //    People.AddRange(result.Results.Where(p => !p.Name.Contains("Vader") && !p.Name.Contains("Anakin")));
+            //}
+
+            //_nextPage = result.Next;
+        }
+        */
     }
 }

@@ -4,31 +4,19 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding.Views;
 using UIKit;
 
-namespace MvvmCrossScaffold001.iOS.Views.Chinook.Cells
+namespace MvvmCrossScaffold001.iOS.Views.Cells
 {
-    /*
-     * CreateView();
-
-            LayoutView();
-
-            BindView();
-            */
-    
-
+    // generic cell for items with name property
     public class NameTableViewCell : BaseTableViewCell
     {
         private const float PADDING = 12f;
 
         private UILabel _lblName;
 
- 
+
         public NameTableViewCell(IntPtr handle) : base(handle)
         {
-            CreateView();
 
-            LayoutView();
-
-            BindView();
         }
 
         protected override void CreateView()
@@ -46,8 +34,6 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook.Cells
             BackgroundColor = UIColor.Clear;
             ContentView.AddSubview(_lblName);
             ContentView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
-
-            BindView();
         }
 
         protected override void LayoutView()
@@ -64,10 +50,9 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook.Cells
 
         protected override void BindView()
         {
-            this.DelayBind(
-                () =>
+            this.DelayBind(() =>
                 {
-                    this.AddBindings(_lblName, "Text Name");
+                    this.AddBindings(_lblName, "Text Name"); // bind lbl.Text to item.Name
                 });
 
             //this.DelayBind(() =>
@@ -81,3 +66,4 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook.Cells
         }
     }
 }
+

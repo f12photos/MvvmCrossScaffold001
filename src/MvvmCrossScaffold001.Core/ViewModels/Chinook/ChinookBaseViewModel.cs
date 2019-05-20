@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using Acr.UserDialogs;
 using MvvmCross;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
@@ -27,6 +28,16 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
                         await _navigationService.Value.Navigate(next);
                 });
             }
+        }
+
+        public static void DisplayToast(string iMsg)
+        {
+            UserDialogs.Instance.Toast(new ToastConfig(iMsg));
+        }
+        public static void DisplayAlert(string iTitle, string iMsg)
+        {
+            Acr.UserDialogs.AlertConfig.DefaultOkText = "OK";
+            UserDialogs.Instance.Alert(iMsg, iTitle);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using Cirrious.FluentLayouts.Touch;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding.Views;
@@ -11,7 +10,7 @@ using UIKit;
 namespace MvvmCrossScaffold001.iOS.Views.Chinook
 {
     [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.PushPanel, true)]
-    public class AlbumView : BaseViewController<AlbumViewModel>
+    public class ArtistView : BaseViewController<ArtistViewModel>
     {
         private UILabel _labelWelcome, _labelMessage;
         private UITextField _txt;
@@ -27,7 +26,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
         protected override void CreateView()
         {
-            Title = "Album";
+            Title = "Artist";
 
             _labelWelcome = new UILabel
             {
@@ -55,7 +54,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
             Add(_btn);
 
             _btnAdd = new UIButton(UIButtonType.System);
-            _btnAdd.SetTitle("Add Album", UIControlState.Normal);
+            _btnAdd.SetTitle("Add Artist", UIControlState.Normal);
             Add(_btnAdd);
 
             _table = new UITableView();
@@ -100,18 +99,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
             //bindingSet.Apply();
 
-            //var set = this.CreateBindingSet<TrackView, TrackViewModel>();
-            //set.Bind(_source).To(vm => vm.Items);
-            //set.Bind(_btnAdd).To(vm => vm.AddTrackCommand);
-            ////set.Bind(_btnAdd).To(vm => vm.AddCommand);
-            ////set.Bind(_source).For(s => s.SelectionChangedCommand).To(vm => vm.GotoTestCommand);
-            //set.Apply();
-
-            var set = this.CreateBindingSet<AlbumView, AlbumViewModel>();
+            var set = this.CreateBindingSet<ArtistView, ArtistViewModel>();
             set.Bind(_btnAdd).To(vm => vm.AddCommand);
 
             set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
-            set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);
+            set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.ArtistSelectedCommand);
             //set.Bind(_source).For(v => v.FetchCommand).To(vm => vm.FetchPeopleCommand);
             set.Apply();
         }

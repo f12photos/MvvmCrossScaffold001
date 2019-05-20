@@ -266,7 +266,7 @@ namespace MvvmCrossScaffold001.Core
                     Album g = new Album
                     {
                         Id = obj.AlbumId,
-                        Title = obj.Title,
+                        Name = obj.Title,
                         ArtistId = obj.ArtistId
                     };
                     _sqliteConn.Insert(g);
