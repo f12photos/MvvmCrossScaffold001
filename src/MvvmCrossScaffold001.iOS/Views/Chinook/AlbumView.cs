@@ -95,17 +95,6 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
         protected override void BindView()
         {
-            //MvxFluentBindingDescriptionSet<MainViewController, MainViewModel>
-            //    bindingSet = this.CreateBindingSet<MainViewController, MainViewModel>();
-
-            //bindingSet.Apply();
-
-            //var set = this.CreateBindingSet<TrackView, TrackViewModel>();
-            //set.Bind(_source).To(vm => vm.Items);
-            //set.Bind(_btnAdd).To(vm => vm.AddTrackCommand);
-            ////set.Bind(_btnAdd).To(vm => vm.AddCommand);
-            ////set.Bind(_source).For(s => s.SelectionChangedCommand).To(vm => vm.GotoTestCommand);
-            //set.Apply();
 
             var set = this.CreateBindingSet<AlbumView, AlbumViewModel>();
             set.Bind(_btnAdd).To(vm => vm.AddCommand);

@@ -61,11 +61,12 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
                 var foundArtist = _items.FirstOrDefault(x => x.Name == result.Name);
                 if(null == foundArtist)
                 {
+                    Items.Insert(0, result);
+                    //await RaisePropertyChanged(() => Items);
                     // add this to the observarble list
-                    _items.Insert(0, result);
+                    //_items.Insert(0, result);
                 }
             }
-            //var strTrackName = result.Name;
         }
 
         //----------------------------------------------------------------------
@@ -84,8 +85,8 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
                 if(null != foundArtist)
                 {
                     foundArtist.Name = "***" + result.Name;
+                    //
                 }
-               
             }
         }
     }

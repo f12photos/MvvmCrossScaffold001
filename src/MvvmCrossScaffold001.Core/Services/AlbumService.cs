@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace MvvmCrossScaffold001.Core.Services
     {
         void AddAlbum(Album t);
 
+        IEnumerable<Album> GetAlbumsFromArtist(int ArtistId);
         //Task<PagedResult<Album>> GetAlbumsAsync(string url = null);
 
         //Task<Album> GetAlbumAsync();
@@ -36,6 +38,12 @@ namespace MvvmCrossScaffold001.Core.Services
         {
             //throw new NotImplementedException();
             Save(t);
+        }
+
+        public IEnumerable<Album> GetAlbumsFromArtist(int ArtistId)
+        {
+            var albums = GetAll().Where(x => x.ArtistId == ArtistId);
+            return albums;
         }
 
         /*

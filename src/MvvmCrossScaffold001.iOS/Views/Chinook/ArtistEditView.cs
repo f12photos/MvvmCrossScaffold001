@@ -16,6 +16,9 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
         private UITextField _txt;
         private UIButton _btn;
 
+        private UITableView _table;
+        private MySimpleTableViewSource _source;
+
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
@@ -44,6 +47,16 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
             _btn.SetTitle("Submit", UIControlState.Normal);
             Add(_btn);
 
+            _table = new UITableView();
+            _table.BackgroundColor = UIColor.Clear;
+            _table.RowHeight = UITableView.AutomaticDimension;
+            _table.EstimatedRowHeight = 44f;
+            Add(_table);
+
+            _source = new MySimpleTableViewSource(_table);
+            _table.Source = _source;
+
+
         }
 
         protected override void LayoutView()
@@ -57,7 +70,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
                 _txt.WithSameWidth(View),
 
                 _btn.Below(_txt, 10f),
-                _btn.WithSameWidth(View)
+                _btn.WithSameWidth(View),
+    
+                _table.Below(_btn, 10f),
+                _table.WithSameWidth(View),
+                _table.AtBottomOfSafeArea(View)
             });
         }
 
@@ -72,6 +89,9 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
             var set = this.CreateBindingSet<ArtistEditView, ArtistEditViewModel>();
             set.Bind(_txt).To(vm => vm.Name);
             set.Bind(_btn).To(vm => vm.AddCommand);
+
+            set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Albums);
+
             set.Apply();
         }
     }
