@@ -27,7 +27,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Cells
 
             _lblName = new UILabel
             {
-                TextColor = UIColor.Red,
+                TextColor = UIColor.Blue,
                 Font = UIFont.SystemFontOfSize(15f, UIFontWeight.Bold)
             };
 
