@@ -7,6 +7,7 @@ using MvvmCross.IoC;
 using MvvmCross.Platforms.Ios.Core;
 using MvvmCross.Platforms.Ios.Presenters;
 using MvvmCross.Plugin.Json;
+using MvvmCross.Plugin.Network.Rest;
 using MvvmCross.Plugin.Sidebar;
 using MvvmCrossScaffold001.Core;
 using MvvmCrossScaffold001.Core.Rest;
@@ -33,6 +34,13 @@ namespace MvvmCrossScaffold001.iOS
             var dbPath = Path.Combine(mainDir, Constants.DB_NAME);
 
             // SETUP IOC HERE INSTEAD OF CORE.APP
+
+            Mvx.IoCProvider.RegisterType<IMvxJsonConverter, MvxJsonConverter>();
+
+            Mvx.IoCProvider.RegisterType<IRestClient, RestClient>();
+            Mvx.IoCProvider.RegisterType<IMvxRestClient, MvxRestClient>();
+            Mvx.IoCProvider.RegisterType<IMvxJsonRestClient, MvxJsonRestClient>();
+
             Mvx.IoCProvider.RegisterSingleton<IRepositoryService>(() => new RepositoryService(dbPath));
             var iRepoSvc = Mvx.IoCProvider.Resolve<IRepositoryService>();
 
@@ -44,8 +52,7 @@ namespace MvvmCrossScaffold001.iOS
                 Mvx.IoCProvider.RegisterSingleton<INetworkService>(() => new iOSNetworkService());
                 Mvx.IoCProvider.RegisterSingleton<IUtilityService>(() => new UtilityService());
 
-                Mvx.IoCProvider.RegisterType<IMvxJsonConverter, MvxJsonConverter>();
-                Mvx.IoCProvider.RegisterType<IRestClient, RestClient>();
+
                 var iRest = Mvx.IoCProvider.Resolve<IRepositoryService>();
                 //Mvx.IoCProvider.RegisterSingleton<IRestClient>(() => new RestClient());
 
