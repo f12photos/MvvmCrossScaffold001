@@ -7,6 +7,8 @@ using MvvmCross.IoC;
 using MvvmCross.Platforms.Ios.Core;
 using MvvmCross.Platforms.Ios.Presenters;
 using MvvmCross.Plugin.Json;
+using MvvmCross.Plugin.Network.Platforms.Ios;
+using MvvmCross.Plugin.Network.Reachability;
 using MvvmCross.Plugin.Network.Rest;
 using MvvmCross.Plugin.Sidebar;
 using MvvmCrossScaffold001.Core;
@@ -38,6 +40,7 @@ namespace MvvmCrossScaffold001.iOS
             Mvx.IoCProvider.RegisterType<IMvxJsonConverter, MvxJsonConverter>();
 
             Mvx.IoCProvider.RegisterType<IRestClient, RestClient>();
+            Mvx.IoCProvider.RegisterType<IMvxReachability, MvxReachability>();
             Mvx.IoCProvider.RegisterType<IMvxRestClient, MvxRestClient>();
             Mvx.IoCProvider.RegisterType<IMvxJsonRestClient, MvxJsonRestClient>();
 
@@ -64,6 +67,11 @@ namespace MvvmCrossScaffold001.iOS
                 Mvx.IoCProvider.RegisterSingleton<ITrackService>(() => new TrackService(iRepoSvc));
                 Mvx.IoCProvider.RegisterSingleton<IAlbumService>(() => new AlbumService(iRepoSvc));
                 Mvx.IoCProvider.RegisterSingleton<IArtistService>(() => new ArtistService(iRepoSvc));
+
+                typeof(Core.Services).Assembly.CreatableTypes()
+                    .EndingWith("Service")
+                    .AsInterfaces()
+                    .RegisterAsDynamic();
             }
         }
 
