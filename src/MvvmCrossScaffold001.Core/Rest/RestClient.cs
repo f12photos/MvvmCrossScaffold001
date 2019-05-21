@@ -8,6 +8,9 @@ using MvvmCross.Plugin.Network.Rest;
 
 namespace MvvmCrossScaffold001.Core.Rest
 {
+    // https://stackoverflow.com/questions/38784741/working-example-of-mvxrestclient-makerequestasync-with-mvxjsonrequest
+    // https://jsonplaceholder.typicode.com/
+    // https://kodejava.org/how-do-i-send-post-request-with-a-json-body-using-the-httpclient/
     // nuget Mvvmcross.plugin.network
 
     //public interface IMvxRestClient
