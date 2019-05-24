@@ -68,10 +68,10 @@ namespace MvvmCrossScaffold001.iOS
                 Mvx.IoCProvider.RegisterSingleton<IAlbumService>(() => new AlbumService(iRepoSvc));
                 Mvx.IoCProvider.RegisterSingleton<IArtistService>(() => new ArtistService(iRepoSvc));
 
-                typeof(Core.Services).Assembly.CreatableTypes()
-                    .EndingWith("Service")
-                    .AsInterfaces()
-                    .RegisterAsDynamic();
+                //typeof(Core.Services).Assembly.CreatableTypes()
+                    //.EndingWith("Service")
+                    //.AsInterfaces()
+                    //.RegisterAsDynamic();
             }
         }
 

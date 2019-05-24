@@ -16,7 +16,8 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
     [MvxSidebarPresentation(MvxPanelEnum.Left, MvxPanelHintType.PushPanel, false)]
     public class MenuView : BaseViewController<MenuViewModel>, IMvxSidebarMenu
     {
-        private UILabel _menuHome, _menuSettings, _menuTip, _menuChinook, _menuLifecycle;
+        private UILabel _menuHome, _menuSettings, _menuTip, _menuChinook,
+            _menuLifecycle, _menuRestDemo, _menuMonkey;
 
         public bool AnimateMenu => true;
 
@@ -91,6 +92,18 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 Text = "Lifecycle"
             };
             Add(_menuLifecycle);
+
+            _menuRestDemo = new UILabel
+            {
+                Text = "REST Demo"
+            };
+            Add(_menuRestDemo);
+
+            _menuMonkey = new UILabel
+            {
+                Text = "Monkey"
+            };
+            Add(_menuMonkey);
         }
 
         protected override void LayoutView()
@@ -119,21 +132,30 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
 
                 _menuLifecycle.Below(_menuChinook, 10f),
                 _menuLifecycle.AtLeftOf(View, 10f),
-                _menuLifecycle.ToRightOf(View)
+                _menuLifecycle.ToRightOf(View),
+
+                _menuRestDemo.Below(_menuLifecycle, 10f),
+                _menuRestDemo.AtLeftOf(View, 10f),
+                _menuRestDemo.ToRightOf(View),
+
+                _menuMonkey.Below(_menuRestDemo, 10f),
+                _menuMonkey.AtLeftOf(View, 10f),
+                _menuMonkey.ToRightOf(View),
 
             });
         }
 
         protected override void BindView()
         {
-            MvxFluentBindingDescriptionSet<MenuView, MenuViewModel>
-                bindingSet = this.CreateBindingSet<MenuView, MenuViewModel>();
+            var bindingSet = this.CreateBindingSet<MenuView, MenuViewModel>();
 
             bindingSet.Bind(_menuHome.Tap()).For(v => v.Command).To(vm => vm.ShowHomeCommand);
             bindingSet.Bind(_menuSettings.Tap()).For(v => v.Command).To(vm => vm.ShowSettingsCommand);
             bindingSet.Bind(_menuTip.Tap()).For(v => v.Command).To(vm => vm.ShowTipCommand);
             bindingSet.Bind(_menuChinook.Tap()).For(v => v.Command).To(vm => vm.ShowChinookCommand);
             bindingSet.Bind(_menuLifecycle.Tap()).For(v => v.Command).To(vm => vm.ShowLifecycleCommand);
+            bindingSet.Bind(_menuRestDemo.Tap()).For(v => v.Command).To(vm => vm.ShowRestDemoCommand);
+
             bindingSet.Apply();
         }
     }

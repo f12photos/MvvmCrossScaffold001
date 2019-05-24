@@ -21,5 +21,10 @@
     <Folder Include="ViewModels\TipCalculator\" />
     <Folder Include="ViewModels\Lifecycle\" />
     <Folder Include="Rest\" />
+    <Folder Include="ViewModels\RestDemo\" />
+    <Folder Include="ViewModels\Monkey\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ViewModels\Monkey\MonkeysViewModel.cs" />
   </ItemGroup>
 </Project>

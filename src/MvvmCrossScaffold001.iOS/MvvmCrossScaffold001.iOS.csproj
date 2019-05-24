@@ -155,6 +155,17 @@
     <Compile Include="Views\skeleton.cs" />
     <Compile Include="Views\Chinook\ArtistAddView.cs" />
     <Compile Include="Views\Chinook\ArtistEditView.cs" />
+    <Compile Include="Views\RestDemo\RestDemoView.cs" />
+    <Compile Include="Views\Chinook\Cells\ArtistTableViewCell.cs" />
+    <BundleResource Include="Resources\ic_alarm_off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\ic_alarm_off%402x.png" />
+    <BundleResource Include="Resources\ic_alarm_off%403x.png" />
+    <BundleResource Include="Resources\ic_alarm_on.png" />
+    <BundleResource Include="Resources\ic_alarm_on%402x.png" />
+    <BundleResource Include="Resources\ic_alarm_on%403x.png" />
+    <Compile Include="Sources\ArtistTableViewSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -173,7 +184,7 @@
       <Version>2.9.0</Version>
     </PackageReference>
     <PackageReference Include="MvvmCross">
-      <Version>6.2.3</Version>
+      <Version>6.3.0</Version>
     </PackageReference>
     <PackageReference Include="MvvmCross.Plugin.Sidebar">
       <Version>6.2.3</Version>
@@ -186,6 +197,12 @@
     </PackageReference>
     <PackageReference Include="MvvmCross.Plugin.Network">
       <Version>6.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.File">
+      <Version>6.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.DownloadCache">
+      <Version>5.7.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +262,8 @@
     <Folder Include="Views\Chinook\Cells\" />
     <Folder Include="Sources\" />
     <Folder Include="Views\Cells\" />
+    <Folder Include="Views\RestDemo\" />
+    <Folder Include="Views\Monkey\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -4,20 +4,21 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding.Views;
 using MvvmCross.Plugin.Sidebar;
 using MvvmCrossScaffold001.Core.ViewModels.Chinook;
+using MvvmCrossScaffold001.Core.ViewModels.RestDemo;
 using MvvmCrossScaffold001.iOS.Sources;
 using UIKit;
 
-namespace MvvmCrossScaffold001.iOS.Views.Chinook
+namespace MvvmCrossScaffold001.iOS.Views.RestDemo
 {
-    [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.PushPanel, true)]
-    public class ArtistView : BaseViewController<ArtistViewModel>
+    [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, false)]
+    public class RestDemoView : BaseViewController<RestDemoViewModel>
     {
         private UILabel _labelWelcome, _labelMessage;
         private UITextField _txt;
         private UIButton _btn, _btnAdd;
         private UITableView _table;
         //private MvxStandardTableViewSource _source;
-        private ArtistTableViewSource _source;
+        private MySimpleTableViewSource _source;
 
         public override void ViewWillAppear(bool animated)
         {
@@ -26,7 +27,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
         protected override void CreateView()
         {
-            Title = "Artist";
+            Title = "REST Demo";
 
             _labelWelcome = new UILabel
             {
@@ -59,11 +60,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
             _table = new UITableView();
             _table.BackgroundColor = UIColor.Clear;
-            _table.RowHeight = 200f;
+            _table.RowHeight = UITableView.AutomaticDimension;
             _table.EstimatedRowHeight = 44f;
             Add(_table);
 
-            _source = new ArtistTableViewSource(_table);
+            _source = new MySimpleTableViewSource(_table);
             _table.Source = _source;
         }
 
@@ -99,11 +100,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
             //bindingSet.Apply();
 
-            var set = this.CreateBindingSet<ArtistView, ArtistViewModel>();
+            var set = this.CreateBindingSet<RestDemoView, RestDemoViewModel>();
             set.Bind(_btnAdd).To(vm => vm.AddCommand);
 
-            set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
-            set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.ArtistSelectedCommand);
+            //set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
+            //set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);
             //set.Bind(_source).For(v => v.FetchCommand).To(vm => vm.FetchPeopleCommand);
             set.Apply();
         }
