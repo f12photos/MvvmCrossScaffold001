@@ -6,7 +6,6 @@ namespace MvvmCrossScaffold001.Core.ViewModels.FFImage
 {
     public class FFImageViewModel : BaseViewModel
     {
-
         private List<Image> _images;
         public List<Image> Images
         {

@@ -20,15 +20,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launch_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="198">
-                                <rect key="frame" x="175" y="160" width="200" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="198">
+                                <rect key="frame" x="87.5" y="218.5" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="633"/>
                                     <constraint firstAttribute="width" constant="200" id="634"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.14117647058823529" green="0.71764705882352942" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="1" alpha="1"/>
                         <constraints>
                             <constraint firstItem="198" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="635"/>
                             <constraint firstAttribute="centerY" secondItem="198" secondAttribute="centerY" constant="15" id="636"/>
@@ -41,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch_image.png" width="280" height="280"/>
+        <image name="launch_image.png" width="1024" height="1024"/>
     </resources>
 </document>

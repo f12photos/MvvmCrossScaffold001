@@ -5,11 +5,11 @@ namespace MvvmCrossScaffold001.iOS.Styles
 {
     public static class ColorPalette
     {
-        public static UIColor Primary => FromHexString("#24b780");
-        public static UIColor PrimaryDark => FromHexString("#008653");
-        public static UIColor PrimaryLight => FromHexString("#64eab0");
+        public static UIColor Primary => FromHexString("#b72424");
+        public static UIColor PrimaryDark => FromHexString("#860000");
+        public static UIColor PrimaryLight => FromHexString("#ea6464");
 
-        public static UIColor Accent => FromHexString("#4c555a");
+        public static UIColor Accent => FromHexString("#5a4c4c");
         public static UIColor AccentDark => FromHexString("#242c31");
         public static UIColor AccentLight => FromHexString("#788187");
 
