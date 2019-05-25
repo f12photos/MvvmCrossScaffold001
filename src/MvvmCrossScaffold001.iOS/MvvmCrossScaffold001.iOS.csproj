@@ -167,7 +167,7 @@
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Chinook_180.png" />
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Chinook_1024.png" />
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Chinook_120.png" />
-
+    <Compile Include="Views\RestDemo\RestDemoView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -259,6 +259,7 @@
     <Folder Include="Sources\" />
     <Folder Include="Views\Cells\" />
     <Folder Include="Views\FFImage\" />
+    <Folder Include="Views\RestDemo\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
