@@ -8,6 +8,7 @@ using MvvmCrossScaffold001.Core.ViewModels.Chinook;
 using MvvmCrossScaffold001.Core.ViewModels.FFImage;
 using MvvmCrossScaffold001.Core.ViewModels.Lifecycle;
 using MvvmCrossScaffold001.Core.ViewModels.Main;
+using MvvmCrossScaffold001.Core.ViewModels.RestDemo;
 using MvvmCrossScaffold001.Core.ViewModels.Settings;
 using MvvmCrossScaffold001.Core.ViewModels.TipCalculator;
 

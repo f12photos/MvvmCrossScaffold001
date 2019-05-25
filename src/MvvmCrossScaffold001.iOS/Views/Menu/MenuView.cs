@@ -92,7 +92,6 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 Text = "Lifecycle"
             };
             Add(_menuLifecycle);
-
             _menuFFImage = new UILabel
             {
                 Text = "FF Image"
@@ -132,13 +131,13 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 _menuFFImage.AtLeftOf(View, 10f),
                 _menuFFImage.ToRightOf(View),
 
+
             });
         }
 
         protected override void BindView()
         {
-            MvxFluentBindingDescriptionSet<MenuView, MenuViewModel>
-                bindingSet = this.CreateBindingSet<MenuView, MenuViewModel>();
+            var bindingSet = this.CreateBindingSet<MenuView, MenuViewModel>();
 
             bindingSet.Bind(_menuHome.Tap()).For(v => v.Command).To(vm => vm.ShowHomeCommand);
             bindingSet.Bind(_menuSettings.Tap()).For(v => v.Command).To(vm => vm.ShowSettingsCommand);
@@ -146,6 +145,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
             bindingSet.Bind(_menuChinook.Tap()).For(v => v.Command).To(vm => vm.ShowChinookCommand);
             bindingSet.Bind(_menuLifecycle.Tap()).For(v => v.Command).To(vm => vm.ShowLifecycleCommand);
             bindingSet.Bind(_menuFFImage.Tap()).For(v => v.Command).To(vm => vm.ShowFFImageCommand);
+
             bindingSet.Apply();
         }
     }
