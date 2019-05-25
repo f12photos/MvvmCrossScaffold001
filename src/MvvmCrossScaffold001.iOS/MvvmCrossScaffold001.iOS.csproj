@@ -155,6 +155,7 @@
     <Compile Include="Views\skeleton.cs" />
     <Compile Include="Views\Chinook\ArtistAddView.cs" />
     <Compile Include="Views\Chinook\ArtistEditView.cs" />
+    <Compile Include="Views\FFImage\FFImageView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -254,6 +255,7 @@
     <Folder Include="Views\Chinook\Cells\" />
     <Folder Include="Sources\" />
     <Folder Include="Views\Cells\" />
+    <Folder Include="Views\FFImage\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

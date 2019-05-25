@@ -16,7 +16,8 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
     [MvxSidebarPresentation(MvxPanelEnum.Left, MvxPanelHintType.PushPanel, false)]
     public class MenuView : BaseViewController<MenuViewModel>, IMvxSidebarMenu
     {
-        private UILabel _menuHome, _menuSettings, _menuTip, _menuChinook, _menuLifecycle;
+        private UILabel _menuHome, _menuSettings, 
+            _menuTip, _menuChinook, _menuLifecycle, _menuFFImage;
 
         public bool AnimateMenu => true;
 
@@ -91,6 +92,12 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 Text = "Lifecycle"
             };
             Add(_menuLifecycle);
+
+            _menuFFImage = new UILabel
+            {
+                Text = "FF Image"
+            };
+            Add(_menuFFImage);
         }
 
         protected override void LayoutView()
@@ -119,7 +126,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
 
                 _menuLifecycle.Below(_menuChinook, 10f),
                 _menuLifecycle.AtLeftOf(View, 10f),
-                _menuLifecycle.ToRightOf(View)
+                _menuLifecycle.ToRightOf(View),
+
+                _menuFFImage.Below(_menuLifecycle, 10f),
+                _menuFFImage.AtLeftOf(View, 10f),
+                _menuFFImage.ToRightOf(View),
 
             });
         }
@@ -134,6 +145,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
             bindingSet.Bind(_menuTip.Tap()).For(v => v.Command).To(vm => vm.ShowTipCommand);
             bindingSet.Bind(_menuChinook.Tap()).For(v => v.Command).To(vm => vm.ShowChinookCommand);
             bindingSet.Bind(_menuLifecycle.Tap()).For(v => v.Command).To(vm => vm.ShowLifecycleCommand);
+            bindingSet.Bind(_menuFFImage.Tap()).For(v => v.Command).To(vm => vm.ShowFFImageCommand);
             bindingSet.Apply();
         }
     }
