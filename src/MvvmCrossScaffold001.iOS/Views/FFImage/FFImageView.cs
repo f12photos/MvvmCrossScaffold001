@@ -18,7 +18,7 @@ namespace MvvmCrossScaffold001.iOS.Views.FFImage
         private UIButton _btn, _btnAdd;
         private UITableView _table;
         //private MvxStandardTableViewSource _source;
-        private MySimpleTableViewSource _source;
+        private MvxSimpleTableViewSource _source;
 
         public override void ViewWillAppear(bool animated)
         {
@@ -64,7 +64,8 @@ namespace MvvmCrossScaffold001.iOS.Views.FFImage
             _table.EstimatedRowHeight = 44f;
             Add(_table);
 
-            _source = new MySimpleTableViewSource(_table);
+            _source = new MvxSimpleTableViewSource(_table, typeof(FFImageCell), nameof(FFImageCell));
+            //_source = new MySimpleTableViewSource(_table);
             _table.Source = _source;
         }
 
@@ -93,20 +94,15 @@ namespace MvvmCrossScaffold001.iOS.Views.FFImage
             });
         }
 
-        //protected override void BindView()
-        //{
-        //    //MvxFluentBindingDescriptionSet<MainViewController, MainViewModel>
-        //    //    bindingSet = this.CreateBindingSet<MainViewController, MainViewModel>();
+        protected override void BindView()
+        {
+            var set = this.CreateBindingSet<FFImageView, FFImageViewModel>();
+            //set.Bind(_btnAdd).To(vm => vm.AddCommand);
 
-        //    //bindingSet.Apply();
-
-        //    var set = this.CreateBindingSet<AlbumView, AlbumViewModel>();
-        //    set.Bind(_btnAdd).To(vm => vm.AddCommand);
-
-        //    set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
-        //    set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);
-        //    //set.Bind(_source).For(v => v.FetchCommand).To(vm => vm.FetchPeopleCommand);
-        //    set.Apply();
-        //}
+            set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Images);
+            //set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);
+            //set.Bind(_source).For(v => v.FetchCommand).To(vm => vm.FetchPeopleCommand);
+            set.Apply();
+        }
     }
 }
