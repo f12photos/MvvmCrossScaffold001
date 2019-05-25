@@ -156,6 +156,14 @@
     <Compile Include="Views\Chinook\ArtistAddView.cs" />
     <Compile Include="Views\Chinook\ArtistEditView.cs" />
     <Compile Include="Views\FFImage\FFImageView.cs" />
+    <Compile Include="Views\FFImage\FFImageCell.cs" />
+    <BundleResource Include="Resources\place.jpg" />
+    <BundleResource Include="Resources\Images\ic_alarm_off.png" />
+    <BundleResource Include="Resources\Images\ic_alarm_off%402x.png" />
+    <BundleResource Include="Resources\Images\ic_alarm_off%403x.png" />
+    <BundleResource Include="Resources\Images\ic_alarm_on.png" />
+    <BundleResource Include="Resources\Images\ic_alarm_on%402x.png" />
+    <BundleResource Include="Resources\Images\ic_alarm_on%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
