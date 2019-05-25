@@ -184,6 +184,18 @@
     <PackageReference Include="MvvmCross.Plugin.Json">
       <Version>6.2.3</Version>
     </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.File">
+      <Version>6.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.Network">
+      <Version>6.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="modernhttpclient-updated">
+      <Version>2.7.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
