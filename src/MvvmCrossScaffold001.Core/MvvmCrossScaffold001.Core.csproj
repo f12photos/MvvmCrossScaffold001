@@ -12,6 +12,7 @@
     <PackageReference Include="MvvmCross.Plugin.Network" Version="6.2.3" />
     <PackageReference Include="RestSharp" Version="106.6.9" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="modernhttpclient-updated" Version="2.7.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -13,7 +13,7 @@ using MvvmCrossScaffold001.Core.Services;
 
 namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
 {
-    // https://stackoverflow.com/questions/38784741/working-example-of-mvxrestclient-makerequestasync-with-mvxjsonrequest
+
     public class RestDemoViewModel : BaseViewModel
     {
         private readonly IMvxJsonConverter _mvxJsonConverter;
@@ -108,6 +108,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
 
         public async Task MvxJsonRestTask()
         {
+            // // https://stackoverflow.com/questions/38784741/working-example-of-mvxrestclient-makerequestasync-with-mvxjsonrequest
             var request = new MvxJsonRestRequest<UserRequest>
                 ("http://jsonplaceholder.typicode.com/posts")
             {
