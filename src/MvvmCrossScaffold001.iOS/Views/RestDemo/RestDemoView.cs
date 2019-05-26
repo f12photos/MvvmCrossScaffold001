@@ -115,8 +115,6 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
             set.Bind(_btnMvxJsonRestClient).To(vm => vm.MvxJsonRestCommand);
             set.Bind(_btnModernHttpClient).To(vm => vm.ModernHttpClientCommand);
 
-
-
             //set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
             //set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);
             //set.Bind(_source).For(v => v.FetchCommand).To(vm => vm.FetchPeopleCommand);

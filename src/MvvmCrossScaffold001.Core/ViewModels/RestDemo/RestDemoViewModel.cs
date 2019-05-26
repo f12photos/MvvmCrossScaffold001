@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross;
@@ -91,7 +92,22 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
             //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
             //var strTrackName = result.Name;
 
-            Message = "Rest Task : ";
+            string strUrl = "'https://jsonplaceholder.typicode.com/posts";
+
+            UserRequest request = new UserRequest
+            {
+                Title = "foo",
+                Body = "bar",
+                UserId = 1
+            };
+
+            var response = await _restClient.MakeApiCall<UserResponse>(strUrl, HttpMethod.Post, request);
+
+            Message = "Rest : ";
+            if (null != response)
+            {
+                Message += _mvxJsonConverter.SerializeObject(response);
+            }
         }
 
         //----------------------------------------------------------------------
@@ -107,7 +123,6 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
             await Task.Delay(10);
             //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
             //var strTrackName = result.Name;
-            Message = "Mvx Rest Task : ";
         }
 
         //----------------------------------------------------------------------
