@@ -4,13 +4,14 @@
 //using MvvmCross.Platforms.Ios.Binding.Views;
 //using MvvmCross.Plugin.Sidebar;
 //using MvvmCrossScaffold001.Core.ViewModels.Chinook;
+//using MvvmCrossScaffold001.Core.ViewModels.RestDemo;
 //using MvvmCrossScaffold001.iOS.Sources;
 //using UIKit;
 
-//namespace MvvmCrossScaffold001.iOS.Views.Chinook
+//namespace MvvmCrossScaffold001.iOS.Views.RestDemo
 //{
-//    [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.PushPanel, true)]
-//    public class ArtistView : BaseViewController<ArtistViewModel>
+//    [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, false)]
+//    public class RestDemoView : BaseViewController<RestDemoViewModel>
 //    {
 //        private UILabel _labelWelcome, _labelMessage;
 //        private UITextField _txt;
@@ -62,9 +63,6 @@
 //            _table.RowHeight = UITableView.AutomaticDimension;
 //            _table.EstimatedRowHeight = 44f;
 //            Add(_table);
-
-//            _source = new MySimpleTableViewSource(_table);
-//            _table.Source = _source;
 //        }
 
 //        protected override void LayoutView()
@@ -92,20 +90,20 @@
 //            });
 //        }
 
-//        protected override void BindView()
-//        {
-//            //MvxFluentBindingDescriptionSet<MainViewController, MainViewModel>
-//            //    bindingSet = this.CreateBindingSet<MainViewController, MainViewModel>();
+//        //protected override void BindView()
+//        //{
+//        //    //MvxFluentBindingDescriptionSet<MainViewController, MainViewModel>
+//        //    //    bindingSet = this.CreateBindingSet<MainViewController, MainViewModel>();
 
-//            //bindingSet.Apply();
+//        //    //bindingSet.Apply();
 
-//            var set = this.CreateBindingSet<AlbumView, AlbumViewModel>();
-//            set.Bind(_btnAdd).To(vm => vm.AddCommand);
+//        //    var set = this.CreateBindingSet<AlbumView, AlbumViewModel>();
+//        //    set.Bind(_btnAdd).To(vm => vm.AddCommand);
 
-//            set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
-//            set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);
-//            //set.Bind(_source).For(v => v.FetchCommand).To(vm => vm.FetchPeopleCommand);
-//            set.Apply();
-//        }
+//        //    set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
+//        //    set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);
+//        //    //set.Bind(_source).For(v => v.FetchCommand).To(vm => vm.FetchPeopleCommand);
+//        //    set.Apply();
+//        //}
 //    }
 //}

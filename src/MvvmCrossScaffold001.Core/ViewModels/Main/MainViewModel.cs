@@ -22,7 +22,5 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Main
             }
             //Acr.UserDialogs.UserDialogs.Instance.Alert("Alert");
         }
-
-
     }
 }
