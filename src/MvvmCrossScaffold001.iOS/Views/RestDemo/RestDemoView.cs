@@ -1,4 +1,5 @@
 ﻿using Cirrious.FluentLayouts.Touch;
+using MvvmCross.Binding.BindingContext;
 using MvvmCross.Plugin.Sidebar;
 using MvvmCrossScaffold001.Core.ViewModels.RestDemo;
 using MvvmCrossScaffold001.iOS.Sources;
@@ -11,10 +12,9 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
     {
         private UILabel _labelWelcome, _labelMessage;
         private UITextField _txt;
-        private UIButton _btn, _btnAdd;
-        private UITableView _table;
+        private UIButton _btn, _btnAdd, _btnRestClient, _btnMvxRestClient, _btnMvxJsonRestClient;
         //private MvxStandardTableViewSource _source;
-        private MySimpleTableViewSource _source;
+        //private MySimpleTableViewSource _source;
 
         public override void ViewWillAppear(bool animated)
         {
@@ -37,11 +37,12 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
                 Text = "App scaffolded with MvxScaffolding",
                 TextAlignment = UITextAlignment.Center
             };
+            _labelMessage.Lines = 10;
             Add(_labelMessage);
 
             _txt = new UITextField
             {
-                Placeholder = "Enter Text Here",
+                Placeholder = "Message to Send",
                 TextAlignment = UITextAlignment.Center
             };
             Add(_txt);
@@ -50,15 +51,17 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
             _btn.SetTitle("This is a Button", UIControlState.Normal);
             Add(_btn);
 
-            _btnAdd = new UIButton(UIButtonType.System);
-            _btnAdd.SetTitle("Add Demo", UIControlState.Normal);
-            Add(_btnAdd);
+            _btnRestClient = new UIButton(UIButtonType.System);
+            _btnRestClient.SetTitle("Rest Client", UIControlState.Normal);
+            Add(_btnRestClient);
 
-            _table = new UITableView();
-            _table.BackgroundColor = UIColor.Clear;
-            _table.RowHeight = UITableView.AutomaticDimension;
-            _table.EstimatedRowHeight = 44f;
-            Add(_table);
+            _btnMvxRestClient = new UIButton(UIButtonType.System);
+            _btnMvxRestClient.SetTitle("Mvx Rest Client", UIControlState.Normal);
+            Add(_btnMvxRestClient);
+
+            _btnMvxJsonRestClient = new UIButton(UIButtonType.System);
+            _btnMvxJsonRestClient.SetTitle("Mvx Json Rest Client", UIControlState.Normal);
+            Add(_btnMvxJsonRestClient);
         }
 
         protected override void LayoutView()
@@ -68,38 +71,43 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
                 _labelWelcome.AtTopOfSafeArea(View),
                 _labelWelcome.WithSameCenterX(View),
 
-                _labelMessage.Below(_labelWelcome, 10f),
-                _labelMessage.WithSameWidth(View),
-
-                _txt.Below(_labelMessage, 10f),
+                _txt.Below(_labelWelcome, 10f),
                 _txt.WithSameWidth(View),
 
                 _btn.Below(_txt, 10f),
                 _btn.WithSameWidth(View),
 
-                _btnAdd.Below(_btn, 10f),
-                _btnAdd.AtLeftOfSafeArea(View, 10f),
+                _btnRestClient.Below(_btn, 10f),
+                _btnRestClient.AtLeftOfSafeArea(View, 10f),
 
-                _table.Below(_btnAdd, 10f),
-                _table.WithSameWidth(View),
-                _table.AtBottomOfSafeArea(View)
+                _btnMvxRestClient.Below(_btnRestClient, 10f),
+                _btnMvxRestClient.AtLeftOfSafeArea(View, 10f),
+
+                _btnMvxJsonRestClient.Below(_btnMvxRestClient, 10f),
+                _btnMvxJsonRestClient.AtLeftOfSafeArea(View, 10f),
+
+                _labelMessage.Below(_btnMvxJsonRestClient, 10f),
+                _labelMessage.WithSameWidth(View)
+
+
             });
         }
 
-        //protected override void BindView()
-        //{
-        //    //MvxFluentBindingDescriptionSet<MainViewController, MainViewModel>
-        //    //    bindingSet = this.CreateBindingSet<MainViewController, MainViewModel>();
+        protected override void BindView()
+        {
+            //MvxFluentBindingDescriptionSet<MainViewController, MainViewModel>
+            //    bindingSet = this.CreateBindingSet<MainViewController, MainViewModel>();
 
-        //    //bindingSet.Apply();
+            //bindingSet.Apply();
 
-        //    var set = this.CreateBindingSet<AlbumView, AlbumViewModel>();
-        //    set.Bind(_btnAdd).To(vm => vm.AddCommand);
+            var set = this.CreateBindingSet<RestDemoView, RestDemoViewModel>();
+            set.Bind(_labelMessage).To(vm => vm.Message);
+            set.Bind(_btnMvxJsonRestClient).To(vm => vm.MvxJsonRestCommand);
 
-        //    set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
-        //    set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);
-        //    //set.Bind(_source).For(v => v.FetchCommand).To(vm => vm.FetchPeopleCommand);
-        //    set.Apply();
-        //}
+            //set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
+            //set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);
+            //set.Bind(_source).For(v => v.FetchCommand).To(vm => vm.FetchPeopleCommand);
+            set.Apply();
+        }
     }
 }

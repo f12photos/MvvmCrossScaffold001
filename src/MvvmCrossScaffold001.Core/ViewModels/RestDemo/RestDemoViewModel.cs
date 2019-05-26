@@ -19,7 +19,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
         private readonly IMvxJsonConverter _mvxJsonConverter;
         private readonly IRestClient _restClient;
         private readonly IMvxRestClient _mvxRestClient;
-        private readonly IMvxJsonRestClient _mvxJsonClient;
+        private readonly IMvxJsonRestClient _mvxJsonRestClient;
 
         private readonly IMvxNavigationService _navigationService;
 
@@ -27,18 +27,33 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
             , IMvxJsonConverter mvxJsonConverter
             , IRestClient restClient
             , IMvxRestClient mvxRestClient
-            , IMvxJsonRestClient mvxJsonClient)
+            , IMvxJsonRestClient mvxJsonRestClient)
         {
             _navigationService = navigationService;
 
             _mvxJsonConverter = mvxJsonConverter;
             _restClient = restClient;
             _mvxRestClient = mvxRestClient;
-            _mvxJsonClient = mvxJsonClient;
+            _mvxJsonRestClient = mvxJsonRestClient;
 
             //var items = _artistService.GetAll();
             //Items = new MvxObservableCollection<Artist>();
             //_items.AddRange(items);
+        }
+
+
+        private string _message;
+        public string Message
+        {
+            get
+            {
+                return _message;
+            }
+            set
+            {
+                _message = value;
+                RaisePropertyChanged(() => Message);
+            }
         }
 
         //private MvxObservableCollection<Artist> _items;
@@ -54,17 +69,70 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
         //        RaisePropertyChanged(() => Items);
         //    }
         //}
-
-        public IMvxCommand AddCommand
+        //----------------------------------------------------------------------
+        //----------------------------------------------------------------------
+        public IMvxCommand RestCommand
         {
-            get { return new MvxAsyncCommand(AddTask); }
+            get { return new MvxAsyncCommand(RestTask); }
         }
 
-        public async Task AddTask()
+        public async Task RestTask()
         {
+            // based on star wars example
             await Task.Delay(10);
             //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
             //var strTrackName = result.Name;
+        }
+
+        //----------------------------------------------------------------------
+        //----------------------------------------------------------------------
+        public IMvxCommand MvxRestCommand
+        {
+            get { return new MvxAsyncCommand(MvxRestTask); }
+        }
+
+        public async Task MvxRestTask()
+        {
+            // based on star wars example
+            await Task.Delay(10);
+            //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
+            //var strTrackName = result.Name;
+        }
+
+        //----------------------------------------------------------------------
+        //----------------------------------------------------------------------
+        public IMvxCommand MvxJsonRestCommand
+        {
+            get { return new MvxAsyncCommand(MvxJsonRestTask); }
+        }
+
+        public async Task MvxJsonRestTask()
+        {
+            var request = new MvxJsonRestRequest<UserRequest>
+                ("http://jsonplaceholder.typicode.com/posts")
+            {
+                Body = new UserRequest
+                {
+                    Title = "foo",
+                    Body = "bar",
+                    UserId = 1
+                }
+            };
+
+            var response = await _mvxJsonRestClient.MakeRequestForAsync<UserResponse>(request);
+
+            // Check response.StatusCode if matches your expected status code
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                // interrogate the response object
+                UserResponse user = response.Result;
+                Message = "Mvx Json Rest Client Return : " + _mvxJsonConverter.SerializeObject(user);
+            }
+            else
+            {
+                // do something in the case of error/time-out/unexpected response code
+                Message = "Error : Mvx Json Rest Client Return = " + response.StatusCode.ToString();
+            }
         }
     }
 }
