@@ -97,17 +97,11 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
                 _labelMessage.Below(_btnModernHttpClient, 10f),
                 _labelMessage.WithSameWidth(View)
 
-
             });
         }
 
         protected override void BindView()
         {
-            //MvxFluentBindingDescriptionSet<MainViewController, MainViewModel>
-            //    bindingSet = this.CreateBindingSet<MainViewController, MainViewModel>();
-
-            //bindingSet.Apply();
-
             var set = this.CreateBindingSet<RestDemoView, RestDemoViewModel>();
             set.Bind(_labelMessage).To(vm => vm.Message);
             set.Bind(_btnRestClient).To(vm => vm.RestCommand);

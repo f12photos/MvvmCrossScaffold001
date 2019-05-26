@@ -27,6 +27,9 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
 
         private readonly IMvxNavigationService _navigationService;
 
+        private UserRequest _request;
+        private string _strUrl;
+
         public RestDemoViewModel(IMvxNavigationService navigationService
             , IMvxJsonConverter mvxJsonConverter
             , IRestClient restClient
@@ -48,6 +51,27 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
             //var items = _artistService.GetAll();
             //Items = new MvxObservableCollection<Artist>();
             //_items.AddRange(items);
+        }
+
+        public override void Prepare()
+        {
+            // first callback. Initialize parameter-agnostic stuff here
+            _request = new UserRequest
+            {
+                Title = "foo",
+                Body = "bar",
+                UserId = 1
+            };
+
+            _strUrl = "https://jsonplaceholder.typicode.com/posts";
+        }
+
+        public override async Task Initialize()
+        {
+            await base.Initialize();
+
+
+            // do the heavy work here
         }
 
 
@@ -89,25 +113,25 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
         {
             // based on star wars example
             await Task.Delay(10);
-            //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
-            //var strTrackName = result.Name;
 
-            string strUrl = "'https://jsonplaceholder.typicode.com/posts";
-
-            UserRequest request = new UserRequest
+            try
             {
-                Title = "foo",
-                Body = "bar",
-                UserId = 1
-            };
+                //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
+                //var strTrackName = result.Name;
+            
+                var response = await _restClient.MakeApiCall<UserResponse>(_strUrl, HttpMethod.Post, _request);
 
-            var response = await _restClient.MakeApiCall<UserResponse>(strUrl, HttpMethod.Post, request);
-
-            Message = "Rest : ";
-            if (null != response)
-            {
-                Message += _mvxJsonConverter.SerializeObject(response);
+                Message = "Rest : ";
+                if (null != response)
+                {
+                    Message += _mvxJsonConverter.SerializeObject(response);
+                }
             }
+            catch(Exception ex)
+            {
+                Message = "Error " + ex.Message;
+            }
+
         }
 
         //----------------------------------------------------------------------
@@ -135,15 +159,9 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
         public async Task MvxJsonRestTask()
         {
             // https://stackoverflow.com/questions/38784741/working-example-of-mvxrestclient-makerequestasync-with-mvxjsonrequest
-            var request = new MvxJsonRestRequest<UserRequest>
-                ("http://jsonplaceholder.typicode.com/posts")
+            var request = new MvxJsonRestRequest<UserRequest>(_strUrl)
             {
-                Body = new UserRequest
-                {
-                    Title = "foo",
-                    Body = "bar",
-                    UserId = 1
-                }
+                Body = _request
             };
 
             var response = await _mvxJsonRestClient.MakeRequestForAsync<UserResponse>(request);
@@ -179,15 +197,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
             //var strTrackName = result.Name;
             Message = "Modern Http Client : ";
 
-            UserRequest request = new UserRequest
-            {
-                Title = "foo",
-                Body = "bar",
-                UserId = 1
-            };
-
-            string strUrl = "https://jsonplaceholder.typicode.com/posts";
-            var response = await _baseHttpSvc.PostAsync(strUrl, request).ConfigureAwait(false);
+            var response = await _baseHttpSvc.PostAsync(_strUrl, _request).ConfigureAwait(false);
             if(null != response)
             {
                 string strReponse = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
