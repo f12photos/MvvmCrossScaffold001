@@ -82,6 +82,8 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
             await Task.Delay(10);
             //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
             //var strTrackName = result.Name;
+
+            Message = "Rest Task : ";
         }
 
         //----------------------------------------------------------------------
@@ -97,6 +99,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
             await Task.Delay(10);
             //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
             //var strTrackName = result.Name;
+            Message = "Mvx Rest Task : ";
         }
 
         //----------------------------------------------------------------------

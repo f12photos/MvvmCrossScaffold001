@@ -102,6 +102,8 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
 
             var set = this.CreateBindingSet<RestDemoView, RestDemoViewModel>();
             set.Bind(_labelMessage).To(vm => vm.Message);
+            set.Bind(_btnRestClient).To(vm => vm.RestCommand);
+            set.Bind(_btnMvxRestClient).To(vm => vm.MvxRestCommand);
             set.Bind(_btnMvxJsonRestClient).To(vm => vm.MvxJsonRestCommand);
 
             //set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
