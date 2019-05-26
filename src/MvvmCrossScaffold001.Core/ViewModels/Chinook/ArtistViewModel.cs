@@ -25,10 +25,6 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Chinook
             _artistSvc = artistService;
 
             var items = _artistSvc.GetAll();
-            foreach(var item in items)
-            {
-                item.ImageUrl = "res:ic_alarm.off.png";
-            }
 
             Items = new MvxObservableCollection<Artist>();
 

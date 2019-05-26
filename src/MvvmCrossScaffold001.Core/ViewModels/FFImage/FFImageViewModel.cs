@@ -29,14 +29,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.FFImage
             Images = new List<Image>();
             for (int i = 0; i < 999; i++)
             {
-                if (i % 2 == 0)
-                {
-                    Images.Add(new Image($"res:Images/ic_alarm_off.png"));
-                }
-                else
-                {
-                    Images.Add(new Image($"res:Images/ic_alarm_on.png"));
-                }
+                Images.Add(new Image($"res:Images/ic_alarm_on.png"));
             }
         }
     }

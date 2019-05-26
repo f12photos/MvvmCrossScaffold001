@@ -9,7 +9,7 @@
 
 //namespace MvvmCrossScaffold001.iOS.Views.Chinook
 //{
-//    [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, false)]
+//    [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.PushPanel, true)]
 //    public class ArtistView : BaseViewController<ArtistViewModel>
 //    {
 //        private UILabel _labelWelcome, _labelMessage;

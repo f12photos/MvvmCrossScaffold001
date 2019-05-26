@@ -153,7 +153,6 @@
     <Compile Include="Views\Cells\NameTableViewCell.cs" />
     <Compile Include="Views\Chinook\ArtistView.cs" />
     <Compile Include="Views\skeleton.cs" />
-    <Compile Include="Views\Chinook\ArtistAddView.cs" />
     <Compile Include="Views\Chinook\ArtistEditView.cs" />
     <Compile Include="Views\FFImage\FFImageView.cs" />
     <Compile Include="Views\FFImage\FFImageCell.cs" />
@@ -164,10 +163,7 @@
     <BundleResource Include="Resources\Images\ic_alarm_on.png" />
     <BundleResource Include="Resources\Images\ic_alarm_on%402x.png" />
     <BundleResource Include="Resources\Images\ic_alarm_on%403x.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Chinook_180.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Chinook_1024.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Chinook_120.png" />
-    <Compile Include="Views\RestDemo\RestDemoView.cs" />
+    <Compile Include="Views\Settings\ArtistAddView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -186,7 +182,7 @@
       <Version>2.9.0</Version>
     </PackageReference>
     <PackageReference Include="MvvmCross">
-      <Version>6.3.0</Version>
+      <Version>6.2.3</Version>
     </PackageReference>
     <PackageReference Include="MvvmCross.Plugin.Sidebar">
       <Version>6.2.3</Version>
@@ -214,10 +210,19 @@
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-152.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-180.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-20.png">
@@ -259,7 +264,6 @@
     <Folder Include="Sources\" />
     <Folder Include="Views\Cells\" />
     <Folder Include="Views\FFImage\" />
-    <Folder Include="Views\RestDemo\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

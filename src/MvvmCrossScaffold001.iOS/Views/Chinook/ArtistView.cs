@@ -17,7 +17,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
         private UIButton _btn, _btnAdd;
         private UITableView _table;
         //private MvxStandardTableViewSource _source;
-        private ArtistTableViewSource _source;
+        private MySimpleTableViewSource _source;
 
         public override void ViewWillAppear(bool animated)
         {
@@ -59,11 +59,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Chinook
 
             _table = new UITableView();
             _table.BackgroundColor = UIColor.Clear;
-            _table.RowHeight = 200f;
+            _table.RowHeight = UITableView.AutomaticDimension;
             _table.EstimatedRowHeight = 44f;
             Add(_table);
 
-            _source = new ArtistTableViewSource(_table);
+            _source = new MySimpleTableViewSource(_table);
             _table.Source = _source;
         }
 

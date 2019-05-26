@@ -16,7 +16,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Cells
 
         public NameTableViewCell(IntPtr handle) : base(handle)
         {
-            //MvxCachedImageView
+
         }
 
         protected override void CreateView()

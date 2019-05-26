@@ -8,7 +8,6 @@ using MvvmCrossScaffold001.Core.ViewModels.Chinook;
 using MvvmCrossScaffold001.Core.ViewModels.FFImage;
 using MvvmCrossScaffold001.Core.ViewModels.Lifecycle;
 using MvvmCrossScaffold001.Core.ViewModels.Main;
-using MvvmCrossScaffold001.Core.ViewModels.RestDemo;
 using MvvmCrossScaffold001.Core.ViewModels.Settings;
 using MvvmCrossScaffold001.Core.ViewModels.TipCalculator;
 
@@ -24,7 +23,6 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
         public IMvxAsyncCommand ShowTipCommand { get; private set; }
         public IMvxAsyncCommand ShowLifecycleCommand { get; private set; }
         public IMvxAsyncCommand ShowFFImageCommand { get; private set; }
-        public IMvxAsyncCommand ShowRestDemoCommand { get; private set; }
 
         public MenuViewModel(IMvxNavigationService navigationService)
         {
@@ -36,8 +34,6 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
             ShowTipCommand = new MvxAsyncCommand(NavigateToTipAsync);
             ShowLifecycleCommand = new MvxAsyncCommand(NavigateToLifecycleAsync);
             ShowFFImageCommand = new MvxAsyncCommand(NavigateToFFImageAsync);
-            ShowRestDemoCommand = new MvxAsyncCommand(NavigateToRestDemoAsync);
-
         }
 
         private Task NavigateToHomeAsync()
@@ -68,11 +64,6 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
         private Task NavigateToFFImageAsync()
         {
             return _navigationService.Navigate<FFImageViewModel>();
-        }
-
-        private Task NavigateToRestDemoAsync()
-        {
-            return _navigationService.Navigate<RestDemoViewModel>();
         }
     }
 }
