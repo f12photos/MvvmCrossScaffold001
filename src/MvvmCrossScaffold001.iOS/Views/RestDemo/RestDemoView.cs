@@ -12,7 +12,8 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
     {
         private UILabel _labelWelcome, _labelMessage;
         private UITextField _txt;
-        private UIButton _btn, _btnAdd, _btnRestClient, _btnMvxRestClient, _btnMvxJsonRestClient;
+        private UIButton _btn, _btnAdd, _btnRestClient, _btnMvxRestClient,
+            _btnMvxJsonRestClient, _btnModernHttpClient;
         //private MvxStandardTableViewSource _source;
         //private MySimpleTableViewSource _source;
 
@@ -62,6 +63,10 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
             _btnMvxJsonRestClient = new UIButton(UIButtonType.System);
             _btnMvxJsonRestClient.SetTitle("Mvx Json Rest Client", UIControlState.Normal);
             Add(_btnMvxJsonRestClient);
+
+            _btnModernHttpClient = new UIButton(UIButtonType.System);
+            _btnModernHttpClient.SetTitle("Modern Http Client", UIControlState.Normal);
+            Add(_btnModernHttpClient);
         }
 
         protected override void LayoutView()
@@ -86,7 +91,10 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
                 _btnMvxJsonRestClient.Below(_btnMvxRestClient, 10f),
                 _btnMvxJsonRestClient.AtLeftOfSafeArea(View, 10f),
 
-                _labelMessage.Below(_btnMvxJsonRestClient, 10f),
+                _btnModernHttpClient.Below(_btnMvxJsonRestClient, 10f),
+                _btnModernHttpClient.AtLeftOfSafeArea(View, 10f),
+
+                _labelMessage.Below(_btnModernHttpClient, 10f),
                 _labelMessage.WithSameWidth(View)
 
 
@@ -105,6 +113,7 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
             set.Bind(_btnRestClient).To(vm => vm.RestCommand);
             set.Bind(_btnMvxRestClient).To(vm => vm.MvxRestCommand);
             set.Bind(_btnMvxJsonRestClient).To(vm => vm.MvxJsonRestCommand);
+            set.Bind(_btnModernHttpClient).To(vm => vm.ModernHttpClientCommand);
 
             //set.Bind(_source).For(v => v.ItemsSource).To(vm => vm.Items);
             //set.Bind(_source).For(v => v.SelectionChangedCommand).To(vm => vm.AlbumSelectedCommand);

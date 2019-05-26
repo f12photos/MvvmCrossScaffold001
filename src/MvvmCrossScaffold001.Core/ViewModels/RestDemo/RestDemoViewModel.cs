@@ -138,5 +138,21 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
                 Message = "Error : Mvx Json Rest Client Return = " + response.StatusCode.ToString();
             }
         }
+
+        //----------------------------------------------------------------------
+        //----------------------------------------------------------------------
+        public IMvxCommand ModernHttpClientCommand
+        {
+            get { return new MvxAsyncCommand(ModernHttpClientTask); }
+        }
+
+        public async Task ModernHttpClientTask()
+        {
+            // based on star wars example
+            await Task.Delay(10);
+            //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
+            //var strTrackName = result.Name;
+            Message = "Modern Http Client : ";
+        }
     }
 }
