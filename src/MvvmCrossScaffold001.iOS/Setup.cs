@@ -39,6 +39,9 @@ namespace MvvmCrossScaffold001.iOS
             Mvx.IoCProvider.RegisterType<IMvxRestClient, MvxRestClient>();
             Mvx.IoCProvider.RegisterType<IMvxJsonRestClient, MvxJsonRestClient>();
 
+            Mvx.IoCProvider.RegisterType<IHttpService, HttpService>();
+            Mvx.IoCProvider.RegisterType<IBaseHttpService, BaseHttpService>();
+
             Mvx.IoCProvider.RegisterSingleton<IRepositoryService>(() => new RepositoryService(dbPath));
             var iRepoSvc = Mvx.IoCProvider.Resolve<IRepositoryService>();
             if (null != iRepoSvc)

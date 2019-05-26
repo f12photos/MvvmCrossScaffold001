@@ -21,13 +21,18 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
         private readonly IMvxRestClient _mvxRestClient;
         private readonly IMvxJsonRestClient _mvxJsonRestClient;
 
+        private readonly IHttpService _httpSvc;
+        private readonly IBaseHttpService _baseHttpSvc;
+
         private readonly IMvxNavigationService _navigationService;
 
         public RestDemoViewModel(IMvxNavigationService navigationService
             , IMvxJsonConverter mvxJsonConverter
             , IRestClient restClient
             , IMvxRestClient mvxRestClient
-            , IMvxJsonRestClient mvxJsonRestClient)
+            , IMvxJsonRestClient mvxJsonRestClient
+            , IHttpService httpService
+            , IBaseHttpService baseHttpService)
         {
             _navigationService = navigationService;
 
@@ -35,6 +40,9 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
             _restClient = restClient;
             _mvxRestClient = mvxRestClient;
             _mvxJsonRestClient = mvxJsonRestClient;
+
+            _httpSvc = httpService;
+            _baseHttpSvc = baseHttpService;
 
             //var items = _artistService.GetAll();
             //Items = new MvxObservableCollection<Artist>();
@@ -111,7 +119,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
 
         public async Task MvxJsonRestTask()
         {
-            // // https://stackoverflow.com/questions/38784741/working-example-of-mvxrestclient-makerequestasync-with-mvxjsonrequest
+            // https://stackoverflow.com/questions/38784741/working-example-of-mvxrestclient-makerequestasync-with-mvxjsonrequest
             var request = new MvxJsonRestRequest<UserRequest>
                 ("http://jsonplaceholder.typicode.com/posts")
             {
@@ -125,17 +133,19 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
 
             var response = await _mvxJsonRestClient.MakeRequestForAsync<UserResponse>(request);
 
+            Message = "Mvx Json Rest Client : ";
+            Message += response.StatusCode.ToString();
+
             // Check response.StatusCode if matches your expected status code
-            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            if (null != response.Result)
             {
-                // interrogate the response object
                 UserResponse user = response.Result;
-                Message = "Mvx Json Rest Client Return : " + _mvxJsonConverter.SerializeObject(user);
+                Message += " " + _mvxJsonConverter.SerializeObject(user);
             }
             else
             {
                 // do something in the case of error/time-out/unexpected response code
-                Message = "Error : Mvx Json Rest Client Return = " + response.StatusCode.ToString();
+                Message += "Error : unrecognized response ";
             }
         }
 
@@ -153,6 +163,22 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
             //var result = await _navigationService.Navigate<TrackAddViewModel, Track>();
             //var strTrackName = result.Name;
             Message = "Modern Http Client : ";
+
+            UserRequest request = new UserRequest
+            {
+                Title = "foo",
+                Body = "bar",
+                UserId = 1
+            };
+
+            string strUrl = "https://jsonplaceholder.typicode.com/posts";
+            var response = await _baseHttpSvc.PostAsync(strUrl, request).ConfigureAwait(false);
+            if(null != response)
+            {
+                string strReponse = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                Message += response.StatusCode.ToString();
+                Message += " " + strReponse;
+            }
         }
     }
 }
