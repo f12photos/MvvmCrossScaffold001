@@ -11,6 +11,7 @@ using MvvmCross.ViewModels;
 using MvvmCrossScaffold001.Core.Models;
 using MvvmCrossScaffold001.Core.Rest;
 using MvvmCrossScaffold001.Core.Services;
+using Newtonsoft.Json;
 
 namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
 {
@@ -203,6 +204,11 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
                 string strReponse = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 Message += response.StatusCode.ToString();
                 Message += " " + strReponse;
+
+                var userResponse0 = JsonConvert.DeserializeObject(strReponse);
+
+                var userResponse1 = _mvxJsonConverter.DeserializeObject(typeof(UserResponse), strReponse);
+
             }
         }
     }
