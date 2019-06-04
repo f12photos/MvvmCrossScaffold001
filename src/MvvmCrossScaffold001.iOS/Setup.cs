@@ -42,6 +42,9 @@ namespace MvvmCrossScaffold001.iOS
             Mvx.IoCProvider.RegisterType<IHttpService, HttpService>();
             Mvx.IoCProvider.RegisterType<IBaseHttpService, BaseHttpService>();
 
+            Mvx.IoCProvider.RegisterType<IStarWarsPeopleService, StarWarsPeopleService>();
+
+
             Mvx.IoCProvider.RegisterSingleton<IRepositoryService>(() => new RepositoryService(dbPath));
             var iRepoSvc = Mvx.IoCProvider.Resolve<IRepositoryService>();
             if (null != iRepoSvc)
@@ -53,6 +56,7 @@ namespace MvvmCrossScaffold001.iOS
                 Mvx.IoCProvider.RegisterSingleton<IUtilityService>(() => new UtilityService());
 
                 var iRest = Mvx.IoCProvider.Resolve<IRepositoryService>();
+
                 //Mvx.IoCProvider.RegisterSingleton<IRestClient>(() => new RestClient());
 
                 Mvx.IoCProvider.RegisterSingleton<ICalculationService>(() => new CalculationService());

@@ -27,5 +27,7 @@
     <Folder Include="Rest\" />
     <Folder Include="ViewModels\FFImage\" />
     <Folder Include="ViewModels\RestDemo\" />
+    <Folder Include="ViewModels\Demo\" />
+    <Folder Include="ViewModels\StarWarsDemo\" />
   </ItemGroup>
 </Project>

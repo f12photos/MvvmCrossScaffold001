@@ -165,6 +165,7 @@
     <BundleResource Include="Resources\Images\ic_alarm_on%403x.png" />
     <Compile Include="Views\Settings\ArtistAddView.cs" />
     <Compile Include="Views\RestDemo\RestDemoView.cs" />
+    <Compile Include="Views\StarWarsDemo\PeopleView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -266,6 +267,7 @@
     <Folder Include="Views\Cells\" />
     <Folder Include="Views\FFImage\" />
     <Folder Include="Views\RestDemo\" />
+    <Folder Include="Views\StarWarsDemo\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
