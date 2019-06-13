@@ -207,10 +207,9 @@ namespace MvvmCrossScaffold001.Core.ViewModels.RestDemo
                 Message += response.StatusCode.ToString();
                 Message += " " + strReponse;
 
-                var userResponse0 = JsonConvert.DeserializeObject(strReponse);
-
+                // convert to object
+                var userResponse0 = JsonConvert.DeserializeObject<UserResponse>(strReponse);
                 var userResponse1 = _mvxJsonConverter.DeserializeObject(typeof(UserResponse), strReponse);
-
             }
         }
     }

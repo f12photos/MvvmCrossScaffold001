@@ -18,7 +18,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
     {
         private UILabel _menuHome, _menuSettings, 
             _menuTip, _menuChinook, _menuLifecycle, _menuFFImage,
-            _menuRestDemo;
+            _menuRestDemo, _menuSpinner;
 
         public bool AnimateMenu => true;
 
@@ -105,6 +105,12 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 Text = "Rest Demo"
             };
             Add(_menuRestDemo);
+
+            _menuSpinner = new UILabel
+            {
+                Text = "Spinner Demo"
+            };
+            Add(_menuSpinner);
         }
 
         protected override void LayoutView()
@@ -141,7 +147,11 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
 
                 _menuRestDemo.Below(_menuFFImage, 10f),
                 _menuRestDemo.AtLeftOf(View, 10f),
-                _menuRestDemo.ToRightOf(View)
+                _menuRestDemo.ToRightOf(View),
+
+                _menuSpinner.Below(_menuRestDemo, 10f),
+                _menuSpinner.AtLeftOf(View, 10f),
+                _menuSpinner.ToRightOf(View),
 
             });
         }
@@ -158,6 +168,7 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
             bindingSet.Bind(_menuLifecycle.Tap()).For(v => v.Command).To(vm => vm.ShowLifecycleCommand);
             bindingSet.Bind(_menuFFImage.Tap()).For(v => v.Command).To(vm => vm.ShowFFImageCommand);
             bindingSet.Bind(_menuRestDemo.Tap()).For(v => v.Command).To(vm => vm.ShowRestDemoCommand);
+            bindingSet.Bind(_menuSpinner.Tap()).For(v => v.Command).To(vm => vm.ShowSpinnerCommand);
             bindingSet.Apply();
         }
     }

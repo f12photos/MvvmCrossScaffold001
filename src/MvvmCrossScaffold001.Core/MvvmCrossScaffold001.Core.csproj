@@ -29,5 +29,6 @@
     <Folder Include="ViewModels\RestDemo\" />
     <Folder Include="ViewModels\Demo\" />
     <Folder Include="ViewModels\StarWarsDemo\" />
+    <Folder Include="ViewModels\Spinner\" />
   </ItemGroup>
 </Project>

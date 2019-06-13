@@ -166,6 +166,7 @@
     <Compile Include="Views\Settings\ArtistAddView.cs" />
     <Compile Include="Views\RestDemo\RestDemoView.cs" />
     <Compile Include="Views\StarWarsDemo\PeopleView.cs" />
+    <Compile Include="Views\Spinner\SpinnerView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -268,6 +269,7 @@
     <Folder Include="Views\FFImage\" />
     <Folder Include="Views\RestDemo\" />
     <Folder Include="Views\StarWarsDemo\" />
+    <Folder Include="Views\Spinner\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -26,6 +26,10 @@ namespace MvvmCrossScaffold001.iOS.Views
                 NavigationController.SetNeedsStatusBarAppearanceUpdate();
             }
 
+            var g = new UITapGestureRecognizer(() => View.EndEditing(true));
+            g.CancelsTouchesInView = false;
+            View.AddGestureRecognizer(g);
+
             CreateView();
 
             LayoutView();

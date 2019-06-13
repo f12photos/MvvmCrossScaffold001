@@ -10,6 +10,7 @@ using MvvmCrossScaffold001.Core.ViewModels.Lifecycle;
 using MvvmCrossScaffold001.Core.ViewModels.Main;
 using MvvmCrossScaffold001.Core.ViewModels.RestDemo;
 using MvvmCrossScaffold001.Core.ViewModels.Settings;
+using MvvmCrossScaffold001.Core.ViewModels.Spinner;
 using MvvmCrossScaffold001.Core.ViewModels.TipCalculator;
 
 namespace MvvmCrossScaffold001.Core.ViewModels.Menu
@@ -25,6 +26,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
         public IMvxAsyncCommand ShowLifecycleCommand { get; private set; }
         public IMvxAsyncCommand ShowFFImageCommand { get; private set; }
         public IMvxAsyncCommand ShowRestDemoCommand { get; private set; }
+        public IMvxAsyncCommand ShowSpinnerCommand { get; private set; }
 
         public MenuViewModel(IMvxNavigationService navigationService)
         {
@@ -37,7 +39,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
             ShowLifecycleCommand = new MvxAsyncCommand(NavigateToLifecycleAsync);
             ShowFFImageCommand = new MvxAsyncCommand(NavigateToFFImageAsync);
             ShowRestDemoCommand = new MvxAsyncCommand(NavigateToRestDemoAsync);
-
+            ShowSpinnerCommand = new MvxAsyncCommand(NavigateToSpinnerAsync);
         }
 
         private Task NavigateToHomeAsync()
@@ -73,6 +75,11 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
         private Task NavigateToRestDemoAsync()
         {
             return _navigationService.Navigate<RestDemoViewModel>();
+        }
+
+        private Task NavigateToSpinnerAsync()
+        {
+            return _navigationService.Navigate<SpinnerViewModel>();
         }
     }
 }
