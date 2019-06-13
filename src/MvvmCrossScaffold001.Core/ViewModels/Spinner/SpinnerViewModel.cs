@@ -4,6 +4,7 @@ using MvvmCross.Navigation;
 
 namespace MvvmCrossScaffold001.Core.ViewModels.Spinner
 {
+    // https://stackoverflow.com/questions/33900884/picker-in-xamarin-ios-available
     public class SpinnerViewModel : BaseViewModel
     {
         private readonly IMvxNavigationService _navigationService;
@@ -11,13 +12,12 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Spinner
         public SpinnerViewModel(IMvxNavigationService navigationService )
         {
             _navigationService = navigationService;
-
         }
 
         private List<Thing> _items = new List<Thing>()
         {
             new Thing("One"),
-            new Thing("Two"),             new Thing("Three"),             new Thing("Four"),         };          public List<Thing> Items         {             get { return _items; }             set { _items = value; RaisePropertyChanged(() => Items); }         }          private Thing _selectedItem = new Thing("Three");          public Thing SelectedItem         {             get { return _selectedItem; }             set { _selectedItem = value; RaisePropertyChanged(() => SelectedItem); }         }
+            new Thing("Two"),             new Thing("Three"),             new Thing("Four"),         };          public List<Thing> Items         {             get { return _items; }             set { _items = value; RaisePropertyChanged(() => Items); }         }          private Thing _selectedItem; //= new Thing("Three");         public Thing SelectedItem         {             get { return _selectedItem; }             set { _selectedItem = value; RaisePropertyChanged(() => SelectedItem); }         }
 
         //----------------------------------------------------------------------
         //----------------------------------------------------------------------
