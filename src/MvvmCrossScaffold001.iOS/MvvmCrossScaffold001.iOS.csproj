@@ -163,10 +163,29 @@
     <BundleResource Include="Resources\Images\ic_alarm_on.png" />
     <BundleResource Include="Resources\Images\ic_alarm_on%402x.png" />
     <BundleResource Include="Resources\Images\ic_alarm_on%403x.png" />
-    <Compile Include="Views\Settings\ArtistAddView.cs" />
     <Compile Include="Views\RestDemo\RestDemoView.cs" />
     <Compile Include="Views\StarWarsDemo\PeopleView.cs" />
     <Compile Include="Views\Spinner\SpinnerView.cs" />
+    <Compile Include="Views\Color\ColorView.cs" />
+    <Compile Include="Views\Converter\ColorsView.cs" />
+    <Compile Include="Views\Converter\ColorsView.designer.cs" />
+    <InterfaceDefinition Include="Views\Converter\ColorsView.xib" />
+    <Compile Include="Views\Converter\DatesView.cs" />
+    <Compile Include="Views\Converter\DatesView.designer.cs" />
+    <InterfaceDefinition Include="Views\Converter\DatesView.xib" />
+    <Compile Include="Views\Converter\HomeView.cs" />
+    <Compile Include="Views\Converter\StringsView.cs" />
+    <Compile Include="Views\Converter\StringsView.designer.cs" />
+    <InterfaceDefinition Include="Views\Converter\StringsView.xib" />
+    <Compile Include="Views\Converter\TwoWayView.cs" />
+    <Compile Include="Views\Converter\TwoWayView.designer.cs" />
+    <InterfaceDefinition Include="Views\Converter\TwoWayView.xib" />
+    <Compile Include="Views\Converter\VisibilityView.cs" />
+    <Compile Include="Views\Converter\VisibilityView.designer.cs" />
+    <InterfaceDefinition Include="Views\Converter\VisibilityView.xib" />
+    <Compile Include="Views\Converter\EmptyClass.cs" />
+    <Compile Include="Views\WebView\WebViewView.cs" />
+    <BundleResource Include="Resources\Tamarin.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -207,6 +226,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading">
       <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Plugin.Color">
+      <Version>6.2.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -270,6 +292,9 @@
     <Folder Include="Views\RestDemo\" />
     <Folder Include="Views\StarWarsDemo\" />
     <Folder Include="Views\Spinner\" />
+    <Folder Include="Views\Color\" />
+    <Folder Include="Views\Converter\" />
+    <Folder Include="Views\WebView\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

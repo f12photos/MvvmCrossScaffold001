@@ -52,6 +52,8 @@ namespace MvvmCrossScaffold001.Core.Rest
             {
                 client.Timeout = TimeSpan.FromSeconds(30);
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                //client.DefaultRequestHeaders.a
+                //nativeHandler.a
 
                 //MultipartFormDataContent content = new MultipartFormDataContent();
 

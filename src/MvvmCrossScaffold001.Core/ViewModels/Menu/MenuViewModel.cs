@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCrossScaffold001.Core.ViewModels.Chinook;
+using MvvmCrossScaffold001.Core.ViewModels.Color;
 using MvvmCrossScaffold001.Core.ViewModels.FFImage;
 using MvvmCrossScaffold001.Core.ViewModels.Lifecycle;
 using MvvmCrossScaffold001.Core.ViewModels.Main;
@@ -12,6 +13,7 @@ using MvvmCrossScaffold001.Core.ViewModels.RestDemo;
 using MvvmCrossScaffold001.Core.ViewModels.Settings;
 using MvvmCrossScaffold001.Core.ViewModels.Spinner;
 using MvvmCrossScaffold001.Core.ViewModels.TipCalculator;
+using MvvmCrossScaffold001.Core.ViewModels.WebView;
 
 namespace MvvmCrossScaffold001.Core.ViewModels.Menu
 {
@@ -27,6 +29,10 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
         public IMvxAsyncCommand ShowFFImageCommand { get; private set; }
         public IMvxAsyncCommand ShowRestDemoCommand { get; private set; }
         public IMvxAsyncCommand ShowSpinnerCommand { get; private set; }
+        public IMvxAsyncCommand ShowColorCommand { get; private set; }
+        public IMvxAsyncCommand ShowWebViewCommand { get; private set; }
+
+
 
         public MenuViewModel(IMvxNavigationService navigationService)
         {
@@ -40,6 +46,8 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
             ShowFFImageCommand = new MvxAsyncCommand(NavigateToFFImageAsync);
             ShowRestDemoCommand = new MvxAsyncCommand(NavigateToRestDemoAsync);
             ShowSpinnerCommand = new MvxAsyncCommand(NavigateToSpinnerAsync);
+            ShowColorCommand = new MvxAsyncCommand(NavigateToColorAsync);
+            ShowWebViewCommand = new MvxAsyncCommand(NavigateToWebviewAsync);
         }
 
         private Task NavigateToHomeAsync()
@@ -80,6 +88,16 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
         private Task NavigateToSpinnerAsync()
         {
             return _navigationService.Navigate<SpinnerViewModel>();
+        }
+
+        private Task NavigateToColorAsync()
+        {
+            return _navigationService.Navigate<ColorViewModel>();
+        }
+
+        private Task NavigateToWebviewAsync()
+        {
+            return _navigationService.Navigate<WebViewViewModel>();
         }
     }
 }

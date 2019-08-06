@@ -9,6 +9,7 @@ using MvvmCross.Platforms.Ios.Presenters;
 using MvvmCross.Plugin.Json;
 using MvvmCross.Plugin.Network.Rest;
 using MvvmCross.Plugin.Sidebar;
+using MvvmCross.UI;
 using MvvmCrossScaffold001.Core;
 using MvvmCrossScaffold001.Core.Rest;
 using MvvmCrossScaffold001.Core.Services;
@@ -38,6 +39,9 @@ namespace MvvmCrossScaffold001.iOS
             Mvx.IoCProvider.RegisterType<IRestClient, RestClient>();
             Mvx.IoCProvider.RegisterType<IMvxRestClient, MvxRestClient>();
             Mvx.IoCProvider.RegisterType<IMvxJsonRestClient, MvxJsonRestClient>();
+
+            //Mvx.IoCProvider.RegisterType<IMvxNativeColor, MvxNativeColor>();
+           
 
             Mvx.IoCProvider.RegisterType<IHttpService, HttpService>();
             Mvx.IoCProvider.RegisterType<IBaseHttpService, BaseHttpService>();

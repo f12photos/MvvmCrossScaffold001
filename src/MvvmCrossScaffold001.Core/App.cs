@@ -15,6 +15,16 @@ namespace MvvmCrossScaffold001.Core
             //    .AsInterfaces()
             //    .RegisterAsLazySingleton();
 
+            //CreatableTypes()
+            //    .EndingWith("Client")
+            //    .AsInterfaces()
+            //    .RegisterAsLazySingleton();
+
+            //CreatableTypes()
+            //    .EndingWith("Converter")
+            //    .AsInterfaces()
+            //    .RegisterAsLazySingleton();
+
             //RegisterAppStart<MainViewModel>();
 
             RegisterCustomAppStart<AppStart>();

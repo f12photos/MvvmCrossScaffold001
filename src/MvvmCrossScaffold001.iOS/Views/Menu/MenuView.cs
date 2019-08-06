@@ -18,7 +18,8 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
     {
         private UILabel _menuHome, _menuSettings, 
             _menuTip, _menuChinook, _menuLifecycle, _menuFFImage,
-            _menuRestDemo, _menuSpinner;
+            _menuRestDemo, _menuSpinner, _menuColor,
+            _menuWebView;
 
         public bool AnimateMenu => true;
 
@@ -111,6 +112,18 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 Text = "Spinner Demo"
             };
             Add(_menuSpinner);
+
+            _menuColor = new UILabel
+            {
+                Text = "Color Demo"
+            };
+            Add(_menuColor);
+
+            _menuWebView = new UILabel
+            {
+                Text = "WebView Demo"
+            };
+            Add(_menuWebView);
         }
 
         protected override void LayoutView()
@@ -153,6 +166,14 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
                 _menuSpinner.AtLeftOf(View, 10f),
                 _menuSpinner.ToRightOf(View),
 
+                _menuColor.Below(_menuSpinner, 10f),
+                _menuColor.AtLeftOf(View, 10f),
+                _menuColor.ToRightOf(View),
+
+                _menuWebView.Below(_menuColor, 10f),
+                _menuWebView.AtLeftOf(View, 10f),
+                _menuWebView.ToRightOf(View),
+
             });
         }
 
@@ -169,6 +190,10 @@ namespace MvvmCrossScaffold001.iOS.Views.Menu
             bindingSet.Bind(_menuFFImage.Tap()).For(v => v.Command).To(vm => vm.ShowFFImageCommand);
             bindingSet.Bind(_menuRestDemo.Tap()).For(v => v.Command).To(vm => vm.ShowRestDemoCommand);
             bindingSet.Bind(_menuSpinner.Tap()).For(v => v.Command).To(vm => vm.ShowSpinnerCommand);
+            bindingSet.Bind(_menuColor.Tap()).For(v => v.Command).To(vm => vm.ShowColorCommand);
+            bindingSet.Bind(_menuWebView.Tap()).For(v => v.Command).To(vm => vm.ShowWebViewCommand);
+
+            
             bindingSet.Apply();
         }
     }
