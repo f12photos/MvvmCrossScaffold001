@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using System.IO;
 using Cirrious.FluentLayouts.Touch;
 using Foundation;
 using MvvmCross.Binding.BindingContext;
@@ -11,6 +12,7 @@ using MvvmCrossScaffold001.Core.ViewModels.RestDemo;
 using MvvmCrossScaffold001.Core.ViewModels.WebView;
 using MvvmCrossScaffold001.iOS.Sources;
 using UIKit;
+using WebKit;
 
 namespace MvvmCrossScaffold001.iOS.Views.RestDemo
 {
@@ -24,7 +26,7 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
         //private MvxStandardTableViewSource _source;
         private MySimpleTableViewSource _source;
 
-        private UIWebView _webView;
+        //private UIWebView _webView;
         private readonly NSUrl url = new NSUrl("https://visualstudio.microsoft.com/xamarin/");
 
 
@@ -37,34 +39,16 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
         {
             Title = "Web View";
 
-            _labelWelcome = new UILabel
-            {
-                Text = Title,
-                TextAlignment = UITextAlignment.Center
-            };
-            Add(_labelWelcome);
+            WKWebView webView = new WKWebView(View.Frame, new WKWebViewConfiguration());
+            View.AddSubview(webView);
 
-            _labelMessage = new UILabel
-            {
-                Text = "App scaffolded with MvxScaffolding",
-                TextAlignment = UITextAlignment.Center
-            };
-            Add(_labelMessage);
+            var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var filename2 = Path.Combine(documents, "xxx.pdf");
 
-            _txt = new UITextField
-            {
-                Placeholder = "Enter Text Here",
-                TextAlignment = UITextAlignment.Center
-            };
-            Add(_txt);
+            var request = new NSUrlRequest(new NSUrl(filename2, false));
 
-            _btn = new UIButton(UIButtonType.System);
-            _btn.SetTitle("This is a Button", UIControlState.Normal);
-            Add(_btn);
-
-            _btnAdd = new UIButton(UIButtonType.System);
-            _btnAdd.SetTitle("Add Artist", UIControlState.Normal);
-            Add(_btnAdd);
+            //var request = new NSUrlRequest(url);
+            webView.LoadRequest(request);
 
             //_table = new UITableView();
             //_table.BackgroundColor = UIColor.Clear;
@@ -72,34 +56,34 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
             //_table.EstimatedRowHeight = 44f;
             //Add(_table);
 
-            _webView = new UIWebView();
+            //_webView = new UIWebView();
             //_webView.LoadRequest(new NSUrlRequest(url));
             //_webView.LoadData
         }
 
         protected override void LayoutView()
         {
-            View.AddConstraints(new FluentLayout[]
-            {
-                _labelWelcome.AtTopOfSafeArea(View),
-                _labelWelcome.WithSameCenterX(View),
+            //View.AddConstraints(new FluentLayout[]
+            //{
+            //    _labelWelcome.AtTopOfSafeArea(View),
+            //    _labelWelcome.WithSameCenterX(View),
 
-                _labelMessage.Below(_labelWelcome, 10f),
-                _labelMessage.WithSameWidth(View),
+            //    _labelMessage.Below(_labelWelcome, 10f),
+            //    _labelMessage.WithSameWidth(View),
 
-                _txt.Below(_labelMessage, 10f),
-                _txt.WithSameWidth(View),
+            //    _txt.Below(_labelMessage, 10f),
+            //    _txt.WithSameWidth(View),
 
-                _btn.Below(_txt, 10f),
-                _btn.WithSameWidth(View),
+            //    _btn.Below(_txt, 10f),
+            //    _btn.WithSameWidth(View),
 
-                _btnAdd.Below(_btn, 10f),
-                _btnAdd.AtLeftOfSafeArea(View, 10f),
+            //    _btnAdd.Below(_btn, 10f),
+            //    _btnAdd.AtLeftOfSafeArea(View, 10f),
 
-                _webView.Below(_btnAdd, 10f),
-                _webView.WithSameWidth(View),
-                _webView.AtBottomOfSafeArea(View)
-            });
+            //    _webView.Below(_btnAdd, 10f),
+            //    _webView.WithSameWidth(View),
+            //    _webView.AtBottomOfSafeArea(View)
+            //});
         }
 
         //protected override void BindView()

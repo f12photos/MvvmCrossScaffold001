@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using MvvmCross;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
+using MvvmCross.Plugin.WebBrowser;
 using MvvmCrossScaffold001.Core.ViewModels.Chinook;
 using MvvmCrossScaffold001.Core.ViewModels.Color;
 using MvvmCrossScaffold001.Core.ViewModels.FFImage;
@@ -98,6 +100,15 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
         private Task NavigateToWebviewAsync()
         {
             return _navigationService.Navigate<WebViewViewModel>();
+        }
+
+        public IMvxCommand ShowOnWeb
+        {
+            get
+            {
+                return new MvxCommand(() =>
+                    Mvx.IoCProvider.Resolve<IMvxWebBrowserTask>().ShowWebPage("https://visualstudio.microsoft.com/xamarin/"));
+            }
         }
     }
 }
