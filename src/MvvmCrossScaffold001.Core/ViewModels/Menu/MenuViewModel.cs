@@ -6,6 +6,7 @@ using MvvmCross;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.WebBrowser;
+using MvvmCrossScaffold001.Core.Services.Itf;
 using MvvmCrossScaffold001.Core.ViewModels.Chinook;
 using MvvmCrossScaffold001.Core.ViewModels.Color;
 using MvvmCrossScaffold001.Core.ViewModels.FFImage;
@@ -22,6 +23,7 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
     public class MenuViewModel : BaseViewModel
     {
         readonly IMvxNavigationService _navigationService;
+        readonly IUtilityService _utlSvc;
 
         public IMvxAsyncCommand ShowHomeCommand { get; private set; }
         public IMvxAsyncCommand ShowSettingsCommand { get; private set; }
@@ -36,9 +38,10 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
 
 
 
-        public MenuViewModel(IMvxNavigationService navigationService)
+        public MenuViewModel(IMvxNavigationService navigationService, IUtilityService utlSvc)
         {
             _navigationService = navigationService;
+            _utlSvc = utlSvc;
 
             ShowHomeCommand = new MvxAsyncCommand(NavigateToHomeAsync);
             ShowSettingsCommand = new MvxAsyncCommand(NavigateToSettingsAsync);
@@ -106,8 +109,9 @@ namespace MvvmCrossScaffold001.Core.ViewModels.Menu
         {
             get
             {
+                var strUrl = _utlSvc.GetFileFromBundle("Tamarin", "pdf");
                 return new MvxCommand(() =>
-                    Mvx.IoCProvider.Resolve<IMvxWebBrowserTask>().ShowWebPage("https://visualstudio.microsoft.com/xamarin/"));
+                    Mvx.IoCProvider.Resolve<IMvxWebBrowserTask>().ShowWebPage(strUrl));
             }
         }
     }

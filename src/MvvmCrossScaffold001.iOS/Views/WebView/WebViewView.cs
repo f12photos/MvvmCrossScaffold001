@@ -16,6 +16,7 @@ using WebKit;
 
 namespace MvvmCrossScaffold001.iOS.Views.RestDemo
 {
+    // https://stackoverflow.com/questions/16548972/dynamic-binding-uiwebview-in-mvvmcross
     [MvxSidebarPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, false)]
     public class WebViewView : BaseViewController<WebViewViewModel>
     {
@@ -45,9 +46,13 @@ namespace MvvmCrossScaffold001.iOS.Views.RestDemo
             var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var filename2 = Path.Combine(documents, "xxx.pdf");
 
-            var request = new NSUrlRequest(new NSUrl(filename2, false));
 
+            var pdfUrl = NSBundle.MainBundle.GetUrlForResource("Tamarin", "pdf");
+
+            //var request = new NSUrlRequest(new NSUrl(filename2, false));
             //var request = new NSUrlRequest(url);
+            var request = new NSUrlRequest(pdfUrl);
+
             webView.LoadRequest(request);
 
             //_table = new UITableView();
